@@ -33,8 +33,9 @@ export default function Header() {
             <Image 
               src="/images/idfis-transparent.svg" 
               alt="IDFIS" 
-              width={220} 
-              height={70} 
+              width={280} 
+              height={90} 
+              priority
             />
           </Link>
         </div>

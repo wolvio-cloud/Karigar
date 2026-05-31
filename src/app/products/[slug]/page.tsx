@@ -7,19 +7,41 @@ import { useCart } from '@/context/CartContext';
 import { useCurrency } from '@/context/CurrencyContext';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 export default function ProductDetail() {
   const params = useParams();
   const slug = params.slug as string;
-  const product = products.find(p => p.slug === slug);
   
+  const [product, setProduct] = useState<any>(null);
+  const [loading, setLoading] = useState(true);
+  const [selectedSize, setSelectedSize] = useState('Standard');
+
   const { addToCart } = useCart();
   const { currency } = useCurrency();
-  const [selectedSize, setSelectedSize] = useState(product?.sizes[0] || '');
+
+  useEffect(() => {
+    fetch(`/api/products?slug=${slug}`)
+      .then(res => {
+        if (!res.ok) throw new Error('Not found');
+        return res.json();
+      })
+      .then(data => {
+        setProduct(data);
+        setLoading(false);
+      })
+      .catch(err => {
+        console.error(err);
+        setLoading(false);
+      });
+  }, [slug]);
+
+  if (loading) {
+    return <main><Header /><div className="container" style={{ paddingTop: '10rem', textAlign: 'center' }}>Loading product details...</div><Footer /></main>;
+  }
 
   if (!product) {
-    return <div>Product not found</div>;
+    return <main><Header /><div className="container" style={{ paddingTop: '10rem', textAlign: 'center' }}>Product not found</div><Footer /></main>;
   }
 
   return (
@@ -29,16 +51,16 @@ export default function ProductDetail() {
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))', gap: '4rem' }}>
           
           <div style={{ position: 'relative', height: '70vh', borderRadius: '8px', overflow: 'hidden' }}>
-            <Image src={product.image} alt={product.name} fill style={{ objectFit: 'cover' }} />
+            <Image src={product.images && product.images.length > 0 ? product.images[0] : '/images/placeholder.png'} alt={product.title} fill style={{ objectFit: 'cover' }} />
           </div>
 
           <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
             <span style={{ color: 'var(--color-accent)', textTransform: 'uppercase', letterSpacing: '0.1em', fontSize: '0.9rem', marginBottom: '1rem' }}>
-              {product.category}
+              {product.category?.name || 'Collection'}
             </span>
-            <h1 style={{ fontSize: '3.5rem', marginBottom: '1.5rem', lineHeight: 1.1 }}>{product.name}</h1>
+            <h1 style={{ fontSize: '3.5rem', marginBottom: '1.5rem', lineHeight: 1.1 }}>{product.title}</h1>
             <p style={{ fontSize: '1.5rem', marginBottom: '2rem' }}>
-              {formatPrice(product.basePriceINR, currency)}
+              {formatPrice(product.price, currency)}
             </p>
             <p style={{ color: 'rgba(252, 250, 248, 0.8)', lineHeight: 1.8, marginBottom: '3rem' }}>
               {product.description}
@@ -47,7 +69,7 @@ export default function ProductDetail() {
             <div style={{ marginBottom: '2rem' }}>
               <p style={{ textTransform: 'uppercase', fontSize: '0.9rem', letterSpacing: '0.1em', marginBottom: '1rem' }}>Size</p>
               <div style={{ display: 'flex', gap: '1rem' }}>
-                {product.sizes.map(size => (
+                {['Standard', 'Custom'].map(size => (
                   <button 
                     key={size}
                     onClick={() => setSelectedSize(size)}
@@ -70,7 +92,17 @@ export default function ProductDetail() {
               className="btn-primary" 
               style={{ width: '100%', padding: '1.2rem', fontSize: '1rem', marginBottom: '3rem' }}
               onClick={() => {
-                addToCart(product, selectedSize, 1);
+                addToCart({
+                  id: product.id,
+                  name: product.title,
+                  slug: product.slug,
+                  basePriceINR: product.price,
+                  image: product.images && product.images.length > 0 ? product.images[0] : '/images/placeholder.png',
+                  category: product.category?.name || 'Collection',
+                  categorySlug: product.category?.slug || '',
+                  sizes: ['Standard', 'Custom'],
+                  description: product.description
+                }, selectedSize, 1);
                 alert('Added to cart!');
               }}
             >
