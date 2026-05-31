@@ -1,0 +1,170 @@
+.headerRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding-top: 2rem;
+}
+
+.sectionTitle {
+  font-family: var(--font-serif);
+  font-size: 2.5rem;
+  font-weight: 300;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-foreground);
+}
+
+.viewAllBtn {
+  font-family: var(--font-sans);
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: var(--color-foreground);
+  text-decoration: none;
+  border: 1px solid var(--color-border);
+  padding: 0.5rem 1.5rem;
+  border-radius: 50px;
+  transition: all var(--transition-fast);
+}
+
+.viewAllBtn:hover {
+  background: var(--color-foreground);
+  color: var(--color-background);
+}
+
+/* Bento Grid System */
+.bentoGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  height: 800px; /* Fixed height to control the masonry look */
+}
+
+.rightCol {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.bottomRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  height: 50%;
+}
+
+/* Card Foundations */
+.card {
+  position: relative;
+  display: block;
+  border-radius: 16px;
+  overflow: hidden;
+  text-decoration: none;
+  color: var(--color-foreground);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.08);
+}
+
+/* Mix blend mode multiply makes the white background of the AI images disappear into the card color */
+.productImg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  mix-blend-mode: multiply;
+  transition: transform 0.5s ease;
+}
+
+.card:hover .productImg {
+  transform: scale(1.05); /* Slight zoom on hover */
+}
+
+/* Specific Card Colors and Layouts based on INOVA reference */
+.mainCard {
+  background-color: #C3D5D7; /* Soft pastel blue/grey */
+  height: 100%;
+}
+
+.wideCard {
+  background-color: #EFE8D8; /* Soft warm yellow/cream */
+  height: 50%;
+}
+
+.squareCard1 {
+  background-color: #D3CFC6; /* Soft taupe */
+}
+
+.squareCard2 {
+  background-color: #C6D7C9; /* Soft mint green */
+}
+
+/* Typography inside cards */
+.cardContent {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.cardContent h3 {
+  font-family: var(--font-sans);
+  font-size: 1.25rem;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.25rem;
+}
+
+.cardContent p {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  opacity: 0.7;
+}
+
+.arrow {
+  position: absolute;
+  bottom: 2rem;
+  right: 2rem;
+  font-size: 1.2rem;
+  opacity: 0.5;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.card:hover .arrow {
+  opacity: 1;
+  transform: translateX(4px);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .bentoGrid {
+    grid-template-columns: 1fr;
+    height: auto;
+  }
+  
+  .mainCard {
+    height: 500px;
+  }
+  
+  .wideCard {
+    height: 350px;
+  }
+  
+  .bottomRow {
+    grid-template-columns: 1fr;
+    height: auto;
+  }
+  
+  .squareCard1, .squareCard2 {
+    height: 350px;
+  }
+}
