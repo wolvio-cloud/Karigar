@@ -3,12 +3,14 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { useSession } from 'next-auth/react';
 import { useCart } from '@/context/CartContext';
 import { useCurrency } from '@/context/CurrencyContext';
 import styles from './Header.module.css';
 import SearchDrawer from './SearchDrawer';
 
 export default function Header() {
+  const { data: session, status } = useSession();
   const [scrolled, setScrolled] = useState(false);
   const { itemCount } = useCart();
   const { currency, setCurrency } = useCurrency();
@@ -81,7 +83,7 @@ export default function Header() {
             <button className={styles.iconBtn} onClick={() => setSearchOpen(true)}>
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
             </button>
-            <Link href="/login" className={styles.iconBtn}>
+            <Link href={status === 'authenticated' ? '/profile' : '/login'} className={styles.iconBtn}>
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
             </Link>
             <Link href="/cart" className={styles.iconBtn} style={{ position: 'relative' }}>

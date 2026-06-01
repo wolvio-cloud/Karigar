@@ -6,7 +6,7 @@ export default function HeroSection() {
     <section className={styles.heroWrapper}>
       <div className={styles.leftCol}>
         <div className={styles.heroContent}>
-          <p className={styles.eyebrow}>AUTHENTIC INDIAN CRAFT</p>
+          <p className={styles.eyebrow}>ROYAL HERITAGE, LUXE REALM</p>
           <h1 className={styles.brandTitle}>India’s Handcrafted Heritage, Curated for the Global Luxury Wardrobe</h1>
           <p className={styles.heroTagline}>
             Discover craft-led sarees, coats, silk kurtas, accessories, and meaningful pieces made with Indian artistry, refined for modern global living.

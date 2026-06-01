@@ -23,15 +23,21 @@ export default function CategoryListing() {
   const [quickViewProduct, setQuickViewProduct] = useState<any | null>(null);
 
   useEffect(() => {
-    const url = slug === 'all' ? '/api/products' : \`/api/products?category=\${slug}\`;
+    const url = slug === 'all' ? '/api/products' : `/api/products?category=${slug}`;
     fetch(url)
       .then(res => res.json())
       .then(data => {
-        setCategoryProducts(data);
+        if (Array.isArray(data)) {
+          setCategoryProducts(data);
+        } else {
+          console.error('API returned non-array:', data);
+          setCategoryProducts([]);
+        }
         setLoading(false);
       })
       .catch(err => {
-        console.error(err);
+        console.error('Fetch error:', err);
+        setCategoryProducts([]);
         setLoading(false);
       });
   }, [slug]);
@@ -49,10 +55,11 @@ export default function CategoryListing() {
 
   const currentCategory = titleMap[slug] || { title: 'Collection', desc: 'Curated handcrafted pieces.' };
 
-  // Apply sorting
-  const sortedProducts = [...categoryProducts].sort((a, b) => {
-    if (sortOption === 'Price: Low to High') return a.price - b.price;
-    if (sortOption === 'Price: High to Low') return b.price - a.price;
+  // Apply sorting safely
+  const safeProducts = Array.isArray(categoryProducts) ? categoryProducts : [];
+  const sortedProducts = [...safeProducts].sort((a, b) => {
+    if (sortOption === 'Price: Low to High') return (a.price || 0) - (b.price || 0);
+    if (sortOption === 'Price: High to Low') return (b.price || 0) - (a.price || 0);
     return 0; // default featured/newest
   });
 
@@ -154,7 +161,7 @@ export default function CategoryListing() {
               return (
                 <div key={product.id} className="product-card-container" style={{ position: 'relative', display: 'flex', flexDirection: 'column' }}>
                   <div style={{ position: 'relative', overflow: 'hidden' }}>
-                    <Link href={\`/products/\${product.slug}\`} style={{ display: 'block', textDecoration: 'none', color: 'inherit' }}>
+                    <Link href={`/products/${product.slug}`} style={{ display: 'block', textDecoration: 'none', color: 'inherit' }}>
                       <div className="img-wrapper" style={{ position: 'relative', aspectRatio: '3/4', borderRadius: '4px', overflow: 'hidden', backgroundColor: 'var(--color-surface)', marginBottom: '1rem' }}>
                         
                         {/* Badges */}
@@ -174,7 +181,7 @@ export default function CategoryListing() {
                         {/* Images with crossfade hover */}
                         <Image src={mainImg} alt={product.title} fill style={{ objectFit: 'cover' }} className="img-main" />
                         {hoverImg && (
-                          <Image src={hoverImg} alt={\`\${product.title} Alternate\`} fill style={{ objectFit: 'cover' }} className="img-hover" />
+                          <Image src={hoverImg} alt={`${product.title} Alternate`} fill style={{ objectFit: 'cover' }} className="img-hover" />
                         )}
                       </div>
                     </Link>
@@ -230,11 +237,11 @@ export default function CategoryListing() {
       )}
 
       {/* Global CSS adjustments */}
-      <style dangerouslySetInnerHTML={{__html: \`
+      <style dangerouslySetInnerHTML={{__html: `
         .product-card-container .img-hover { opacity: 0; transition: opacity 0.5s ease; }
         .product-card-container:hover .img-hover { opacity: 1; }
         .product-card-container:hover .quick-view-btn { opacity: 1 !important; }
-      \`}} />
+      `}} />
 
       <Footer />
     </main>

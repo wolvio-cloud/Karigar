@@ -128,3 +128,13 @@
     gap: 3rem;
   }
 }
+
+.socialIcon {
+  color: var(--color-foreground);
+  opacity: 0.8;
+  transition: opacity 0.2s;
+}
+
+.socialIcon:hover {
+  opacity: 1;
+}

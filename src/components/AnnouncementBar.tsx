@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import styles from './AnnouncementBar.module.css';
 
 const messages = [
-  "Authentic Indian craft, curated for the global luxury wardrobe.",
+  "Royal heritage, luxe realm.",
   "Tracked dispatch within 48 hours for eligible ready-to-ship orders.",
   "Transparent international shipping calculated at checkout.",
   "Elite protective packaging for every order."

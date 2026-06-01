@@ -298,9 +298,26 @@ export default function ProductDetail() {
               </div>
             </div>
 
+            {/* Meet the Maker (Storytelling) */}
+            <div style={{ borderBottom: '1px solid var(--color-border)', marginTop: '2rem' }}>
+              <div style={{ padding: '2rem 1.5rem', background: 'rgba(255,255,255,0.02)' }}>
+                <h4 style={{ fontSize: '1.2rem', fontFamily: 'var(--font-serif)', color: 'var(--color-accent)', marginBottom: '1rem' }}>Meet the Makers</h4>
+                <p style={{ fontSize: '0.9rem', lineHeight: 1.6, opacity: 0.8, marginBottom: '1.5rem' }}>
+                  Behind this piece is a deep legacy of Indian craftsmanship. We partner with multi-generational artisan families to bring you authentic, slow-made luxury.
+                </p>
+                <Link href="/artisans" style={{ display: 'inline-block', fontSize: '0.8rem', textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--color-foreground)', borderBottom: '1px solid var(--color-foreground)', paddingBottom: '0.2rem', textDecoration: 'none' }}>
+                  Discover Their Story →
+                </Link>
+              </div>
+            </div>
+
             {/* Trust Blocks - The Karigar Care Journey */}
             <div style={{ marginTop: '4rem' }}>
-              <h4 style={{ fontSize: '1.1rem', fontFamily: 'var(--font-serif)', marginBottom: '1.5rem' }}>The IDFIS Karigar Care Journey™</h4>
+              <Link href="/care-journey" style={{ textDecoration: 'none' }}>
+                <h4 style={{ fontSize: '1.1rem', fontFamily: 'var(--font-serif)', marginBottom: '1.5rem', color: 'var(--color-foreground)', display: 'inline-flex', alignItems: 'center', gap: '0.5rem', borderBottom: '1px solid var(--color-foreground)', paddingBottom: '0.2rem' }}>
+                  The IDFIS Karigar Care Journey™ ↗
+                </h4>
+              </Link>
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
                 {['Craft Origin Verified', 'Quality Checked in India', 'Elite Protective Packaging', 'Transparent Shipping Cost', 'Tracked Dispatch', 'Safe Arrival Support'].map((trust, idx) => (
                   <div key={idx} style={{ display: 'flex', alignItems: 'center', gap: '0.8rem', fontSize: '0.8rem', opacity: 0.8 }}>

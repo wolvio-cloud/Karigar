@@ -108,7 +108,7 @@ export default function QuickViewModal({ product, onClose }: QuickViewModalProps
                             padding: '0.8rem 1.2rem',
                             background: selectedVariants[type] === opt.value ? 'var(--color-surface)' : 'transparent',
                             color: opt.inventory === 0 ? 'rgba(252, 250, 248, 0.3)' : 'var(--color-foreground)',
-                            border: \`1px solid \${selectedVariants[type] === opt.value ? 'var(--color-foreground)' : 'var(--color-border)'}\`,
+                            border: `1px solid ${selectedVariants[type] === opt.value ? 'var(--color-foreground)' : 'var(--color-border)'}`,
                             cursor: opt.inventory === 0 ? 'not-allowed' : 'pointer',
                             fontSize: '0.85rem'
                           }}
@@ -131,7 +131,7 @@ export default function QuickViewModal({ product, onClose }: QuickViewModalProps
             Add to Cart
           </button>
           
-          <Link href={\`/products/\${product.slug}\`} style={{ display: 'block', textAlign: 'center', width: '100%', padding: '1.2rem', fontSize: '1rem', border: '1px solid var(--color-border)', color: 'var(--color-foreground)', textDecoration: 'none', marginBottom: '2rem' }}>
+          <Link href={`/products/${product.slug}`} style={{ display: 'block', textAlign: 'center', width: '100%', padding: '1.2rem', fontSize: '1rem', border: '1px solid var(--color-border)', color: 'var(--color-foreground)', textDecoration: 'none', marginBottom: '2rem' }}>
             View Full Details
           </Link>
 
