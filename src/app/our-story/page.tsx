@@ -10,7 +10,7 @@ export default function OurStory() {
       
       <section className={styles.hero}>
         <Image 
-          src="/images/bento_coat.png"
+          src="/images/story_hero.png"
           alt="IDFIS Architecture"
           fill
           priority
@@ -35,7 +35,7 @@ export default function OurStory() {
 
         <div className={styles.gridSplit}>
           <div className={styles.imageWrap}>
-            <Image src="/images/bento_kurta.png" alt="Detail shot" fill style={{ objectFit: 'cover' }} />
+            <Image src="/images/sustainability_nature.png" alt="Detail shot" fill style={{ objectFit: 'cover' }} />
           </div>
           <div>
             <h3 style={{ fontSize: '2rem', marginBottom: '1.5rem', fontFamily: 'var(--font-serif)' }}>The Philosophy</h3>

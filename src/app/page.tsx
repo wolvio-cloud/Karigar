@@ -143,7 +143,7 @@ export default function Home() {
             </p>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem', maxWidth: '800px', margin: '0 auto' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '1rem', maxWidth: '800px', margin: '0 auto' }}>
             <div style={{ padding: '2rem', borderBottom: '1px solid var(--color-border)' }}>
               <h4 style={{ fontSize: '1.1rem', color: 'var(--color-accent)', marginBottom: '0.5rem' }}>Product Craft Value</h4>
               <p style={{ fontSize: '0.9rem', opacity: 0.7 }}>Artisan work, material, technique, and finishing.</p>
@@ -175,7 +175,7 @@ export default function Home() {
       {/* Artisans Preview & Reviews */}
       <section style={{ padding: '8rem 2rem', backgroundColor: 'var(--color-surface)', borderTop: '1px solid var(--color-border)' }}>
         <div className="container" style={{ maxWidth: '1200px' }}>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '4rem', alignItems: 'center' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '4rem', alignItems: 'center' }}>
             <div>
               <h2 style={{ fontSize: '3rem', fontFamily: 'var(--font-serif)', marginBottom: '1.5rem' }}>The Hands Behind the Pieces</h2>
               <p style={{ fontSize: '1.1rem', lineHeight: 1.8, opacity: 0.8, marginBottom: '2rem' }}>

@@ -10,7 +10,7 @@ export default function TheArtisans() {
       
       <section className={styles.hero}>
         <Image 
-          src="/images/bento_saree.png"
+          src="/images/artisan_crafting.png"
           alt="Artisan Crafting"
           fill
           priority
