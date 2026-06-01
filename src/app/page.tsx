@@ -212,7 +212,7 @@ export default function Home() {
               <div style={{ position: 'absolute', top: '1.5rem', width: '100%', display: 'flex', justifyContent: 'center', zIndex: 10, opacity: 0.85 }}>
                 <img src="/images/idfis-transparent.svg" alt="IDFIS" style={{ width: '60px' }} />
               </div>
-              <img src="/images/story_hero.png" alt="From India to the World" style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.5s ease' }} className="social-grid-img" />
+              <img src="/images/home_journal_4.png" alt="From India to the World" style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.5s ease' }} className="social-grid-img" />
               <div style={{ position: 'absolute', bottom: 0, left: 0, width: '100%', padding: '2rem 1.5rem 1.5rem 1.5rem', background: 'linear-gradient(to top, rgba(0,0,0,0.8), transparent)', zIndex: 10 }}>
                 <h4 style={{ color: '#fff', margin: 0, fontSize: '1.1rem', fontFamily: 'var(--font-serif)' }}>From India to the World</h4>
               </div>

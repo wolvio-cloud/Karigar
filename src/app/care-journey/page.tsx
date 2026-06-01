@@ -8,12 +8,12 @@ export default function CareJourney() {
     {
       title: '01. Craft Origin Verification',
       description: 'Before a piece ever leaves the artisan cluster, it undergoes a rigorous provenance check. We ensure that every thread, dye, and technique aligns with authentic heritage practices. This is where the story begins—at the source.',
-      image: '/images/varanasi_loom.png'
+      image: '/images/care_origin.png'
     },
     {
       title: '02. Multi-Point Quality Check',
       description: 'Upon arrival at our curatorial headquarters, each garment is inspected by hand. We look for the strength of the weave, the consistency of the block print, and the integrity of the seams, celebrating the natural variations of handmade craft while ensuring enduring quality.',
-      image: '/images/craft_in_detail.png'
+      image: '/images/care_quality.png'
     },
     {
       title: '03. Elite Protective Packaging',
@@ -28,7 +28,7 @@ export default function CareJourney() {
     {
       title: '05. Concierge Arrival Support',
       description: 'The journey does not end at delivery. Our dedicated concierge team is available to assist with care instructions, styling advice, or any inquiries regarding your new heritage piece. We build relationships, not just transactions.',
-      image: '/images/styled_modern_living.png'
+      image: '/images/care_support.png'
     }
   ];
 
