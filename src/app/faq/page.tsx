@@ -1,49 +1,79 @@
-'use client';
-
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import styles from '../about.module.css';
 
 export default function FAQ() {
   return (
-    <div className={styles.pageWrapper}>
+    <main>
       <Header />
-      
-      <div style={{ paddingTop: '8rem', textAlign: 'center' }}>
-        <h1 className={styles.sectionTitle} style={{ color: 'var(--color-accent)' }}>FAQ & Support</h1>
-      </div>
-
-      <div className={styles.contentContainer} style={{ maxWidth: '800px' }}>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
-          <div style={{ padding: '2rem', background: 'var(--color-surface)', borderRadius: 'var(--radius-md)' }}>
-            <h4 style={{ fontSize: '1.2rem', fontWeight: 600, marginBottom: '1rem' }}>Are your products genuinely handmade?</h4>
-            <p className={styles.textBlock} style={{ marginBottom: 0 }}>
-              Yes. Every single item in our collection is handcrafted by artisans across India. Minor variations in color, weave, or polish are natural hallmarks of the handmade process and are not considered defects.
-            </p>
-          </div>
+      <div className="container" style={{ paddingTop: '8rem', paddingBottom: '6rem', maxWidth: '800px', minHeight: '80vh' }}>
+        <h1 style={{ fontSize: '3rem', fontFamily: 'var(--font-serif)', marginBottom: '3rem', textAlign: 'center' }}>
+          FAQ & Support
+        </h1>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem', color: 'rgba(252, 250, 248, 0.85)', lineHeight: 1.8, fontSize: '1.05rem', fontFamily: 'var(--font-sans)', fontWeight: 300 }}>
           
-          <div style={{ padding: '2rem', background: 'var(--color-surface)', borderRadius: 'var(--radius-md)' }}>
-            <h4 style={{ fontSize: '1.2rem', fontWeight: 600, marginBottom: '1rem' }}>How long will it take to receive my order?</h4>
-            <p className={styles.textBlock} style={{ marginBottom: 0 }}>
-              Once your order is placed, it undergoes a 2-day quality inspection. International shipping via our premium courier partners typically takes 5-8 business days depending on customs clearance in your country.
-            </p>
+          <div>
+            <h3 style={{ fontSize: '1.2rem', color: 'var(--color-foreground)', marginBottom: '0.5rem', fontWeight: 500 }}>Are IDFIS products authentic Indian handcrafted products?</h3>
+            <p>Yes. IDFIS focuses on Indian craft-led products, including artisan-made or artisan-finished apparel, textiles, accessories, and decor. Each collection is curated for craftsmanship, material quality, and cultural value.</p>
           </div>
 
-          <div style={{ padding: '2rem', background: 'var(--color-surface)', borderRadius: 'var(--radius-md)' }}>
-            <h4 style={{ fontSize: '1.2rem', fontWeight: 600, marginBottom: '1rem' }}>Do I have to pay customs duties?</h4>
-            <p className={styles.textBlock} style={{ marginBottom: 0 }}>
-              Yes. We ship DDU (Delivered Duty Unpaid). Your local customs authority may charge import taxes or duties, which must be paid by the recipient prior to final delivery.
-            </p>
+          <div>
+            <h3 style={{ fontSize: '1.2rem', color: 'var(--color-foreground)', marginBottom: '0.5rem', fontWeight: 500 }}>Where are your products shipped from?</h3>
+            <p>Most orders are shipped from India.</p>
           </div>
-        </div>
 
-        <div style={{ textAlign: 'center', marginTop: '6rem' }}>
-          <p className={styles.textBlock}>Still have questions?</p>
-          <a href="/contact" className="btn-primary" style={{ padding: '1rem 2rem', display: 'inline-block', textDecoration: 'none' }}>Contact Concierge</a>
+          <div>
+            <h3 style={{ fontSize: '1.2rem', color: 'var(--color-foreground)', marginBottom: '0.5rem', fontWeight: 500 }}>Do you ship internationally?</h3>
+            <p>Yes. We ship to selected international destinations including India, the US, UK, Europe, Canada, Australia, UAE, Singapore, and other supported regions.</p>
+          </div>
+
+          <div>
+            <h3 style={{ fontSize: '1.2rem', color: 'var(--color-foreground)', marginBottom: '0.5rem', fontWeight: 500 }}>How is shipping cost calculated?</h3>
+            <p>Shipping is calculated based on destination country, product weight, package size, courier service, and protective packaging requirements.</p>
+          </div>
+
+          <div>
+            <h3 style={{ fontSize: '1.2rem', color: 'var(--color-foreground)', marginBottom: '0.5rem', fontWeight: 500 }}>Why is shipping not always free?</h3>
+            <p>International logistics have real costs. We prefer to show shipping transparently instead of hiding the full logistics cost inside every product price.</p>
+          </div>
+
+          <div>
+            <h3 style={{ fontSize: '1.2rem', color: 'var(--color-foreground)', marginBottom: '0.5rem', fontWeight: 500 }}>Will I receive tracking?</h3>
+            <p>Yes. Once your order is dispatched, you will receive a tracking link by email.</p>
+          </div>
+
+          <div>
+            <h3 style={{ fontSize: '1.2rem', color: 'var(--color-foreground)', marginBottom: '0.5rem', fontWeight: 500 }}>Do you offer 48-hour delivery?</h3>
+            <p>No. We offer tracked dispatch within 48 hours for eligible ready-to-ship orders. International delivery timelines vary by destination and customs clearance.</p>
+          </div>
+
+          <div>
+            <h3 style={{ fontSize: '1.2rem', color: 'var(--color-foreground)', marginBottom: '0.5rem', fontWeight: 500 }}>Will I have to pay customs duties or taxes?</h3>
+            <p>Depending on your country, customs duties, VAT, import taxes, or courier handling charges may apply. Where supported, these may appear at checkout. Otherwise, your local customs authority or courier may request payment before delivery.</p>
+          </div>
+
+          <div>
+            <h3 style={{ fontSize: '1.2rem', color: 'var(--color-foreground)', marginBottom: '0.5rem', fontWeight: 500 }}>How are products packed?</h3>
+            <p>Every product is packed based on material, weight, and fragility. Garments, coats, accessories, decor, and fragile items each receive suitable protective packaging.</p>
+          </div>
+
+          <div>
+            <h3 style={{ fontSize: '1.2rem', color: 'var(--color-foreground)', marginBottom: '0.5rem', fontWeight: 500 }}>What if my order arrives damaged?</h3>
+            <p>Contact us within 48 hours of delivery with photos of the product, packaging, and shipping label. We will review the issue and help make it right.</p>
+          </div>
+
+          <div>
+            <h3 style={{ fontSize: '1.2rem', color: 'var(--color-foreground)', marginBottom: '0.5rem', fontWeight: 500 }}>Are small variations normal?</h3>
+            <p>Yes. Handmade products may have small variations in color, texture, pattern, weave, print, embroidery, or finish. These are part of the handmade character.</p>
+          </div>
+
+          <div>
+            <h3 style={{ fontSize: '1.2rem', color: 'var(--color-foreground)', marginBottom: '0.5rem', fontWeight: 500 }}>Can I return a product?</h3>
+            <p>Returns may be accepted depending on the product category, destination, and item condition. Returned products must be unused, unworn, unwashed, undamaged, and in original packaging.</p>
+          </div>
+
         </div>
       </div>
-
       <Footer />
-    </div>
+    </main>
   );
 }

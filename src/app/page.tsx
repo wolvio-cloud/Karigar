@@ -15,45 +15,87 @@ export default function Home() {
       <section style={{ padding: '8rem 2rem', borderTop: '1px solid var(--color-border)', backgroundColor: 'var(--color-background)' }}>
         <div className="container" style={{ maxWidth: '1200px' }}>
           <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginBottom: '6rem' }}>
-            <span style={{ fontFamily: 'var(--font-sans)', fontSize: '0.8rem', letterSpacing: '0.2em', textTransform: 'uppercase', marginBottom: '1rem', color: 'var(--color-accent)' }}>The Guarantee</span>
+            <span style={{ fontFamily: 'var(--font-sans)', fontSize: '0.8rem', letterSpacing: '0.2em', textTransform: 'uppercase', marginBottom: '1rem', color: 'var(--color-accent)' }}>From Artisan Hands to Your Home</span>
             <h2 style={{ fontSize: '4rem', fontFamily: 'var(--font-serif)', color: 'var(--color-foreground)', textAlign: 'center', lineHeight: 1.1, margin: 0 }}>
-              The Karigar <br/>Care Journey™
+              The IDFIS Karigar <br/>Care Journey™
             </h2>
-            <p style={{ fontSize: '1.2rem', maxWidth: '600px', textAlign: 'center', marginTop: '2rem', color: 'var(--color-foreground)', opacity: 0.8, fontFamily: 'var(--font-sans)', fontWeight: 300, lineHeight: 1.6 }}>
-              We believe in radical transparency. From the artisan's loom in India to your doorstep anywhere in the world, your piece is tracked, protected, and guaranteed.
+            <p style={{ fontSize: '1.2rem', maxWidth: '800px', textAlign: 'center', marginTop: '2rem', color: 'var(--color-foreground)', opacity: 0.8, fontFamily: 'var(--font-sans)', fontWeight: 300, lineHeight: 1.6 }}>
+              Every IDFIS order follows a careful journey — from craft-led sourcing and quality checks in India to elite protective packaging, transparent shipping, tracked dispatch, and safe arrival support.
             </p>
           </div>
           
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '3rem', borderTop: '1px solid var(--color-border)', paddingTop: '4rem' }}>
-            <div style={{ textAlign: 'center', padding: '0 1rem' }}>
-              <div style={{ marginBottom: '2rem', color: 'var(--color-foreground)' }}>
-                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
-              </div>
-              <h3 style={{ fontSize: '1.5rem', fontFamily: 'var(--font-serif)', marginBottom: '1rem', fontWeight: 400 }}>Packed to Travel Safely</h3>
-              <p style={{ fontSize: '0.95rem', fontFamily: 'var(--font-sans)', opacity: 0.7, lineHeight: 1.5 }}>Custom crating and climate-sealed packaging for international transit.</p>
+            <div style={{ textAlign: 'center', padding: '1rem', background: 'var(--color-surface)', borderRadius: '8px' }}>
+              <h3 style={{ fontSize: '1.2rem', fontFamily: 'var(--font-serif)', marginBottom: '1rem', color: 'var(--color-accent)' }}>1. Craft Origin Verified</h3>
+              <p style={{ fontSize: '0.95rem', opacity: 0.7, lineHeight: 1.5 }}>Each piece is selected for its Indian craft tradition, material quality, and artisan value.</p>
             </div>
-            
-            <div style={{ textAlign: 'center', padding: '0 1rem' }}>
-              <div style={{ marginBottom: '2rem', color: 'var(--color-foreground)' }}>
-                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.2-1.1.6L3 8l6 4-3 3-3-1-2 2 4 4 2-2-1-3 3-3 4 6l1.2-.7c.4-.2.7-.6.6-1.1z"></path></svg>
-              </div>
-              <h3 style={{ fontSize: '1.5rem', fontFamily: 'var(--font-serif)', marginBottom: '1rem', fontWeight: 400 }}>Transparent Logistics</h3>
-              <p style={{ fontSize: '0.95rem', fontFamily: 'var(--font-sans)', opacity: 0.7, lineHeight: 1.5 }}>Real-time tracking and zero hidden shipping markups.</p>
+            <div style={{ textAlign: 'center', padding: '1rem', background: 'var(--color-surface)', borderRadius: '8px' }}>
+              <h3 style={{ fontSize: '1.2rem', fontFamily: 'var(--font-serif)', marginBottom: '1rem', color: 'var(--color-accent)' }}>2. Quality Checked</h3>
+              <p style={{ fontSize: '0.95rem', opacity: 0.7, lineHeight: 1.5 }}>Inspected for finish, stitching, measurements, surface quality, and packaging readiness.</p>
             </div>
-            
-            <div style={{ textAlign: 'center', padding: '0 1rem' }}>
-              <div style={{ marginBottom: '2rem', color: 'var(--color-foreground)' }}>
-                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
-              </div>
-              <h3 style={{ fontSize: '1.5rem', fontFamily: 'var(--font-serif)', marginBottom: '1rem', fontWeight: 400 }}>48-Hour Guarantee</h3>
-              <p style={{ fontSize: '0.95rem', fontFamily: 'var(--font-sans)', opacity: 0.7, lineHeight: 1.5 }}>If your item arrives damaged, we resolve it within 48 hours.</p>
+            <div style={{ textAlign: 'center', padding: '1rem', background: 'var(--color-surface)', borderRadius: '8px' }}>
+              <h3 style={{ fontSize: '1.2rem', fontFamily: 'var(--font-serif)', marginBottom: '1rem', color: 'var(--color-accent)' }}>3. Elite Protective Packaging</h3>
+              <p style={{ fontSize: '0.95rem', opacity: 0.7, lineHeight: 1.5 }}>Products are packed according to material, weight, and fragility using layered protection.</p>
+            </div>
+            <div style={{ textAlign: 'center', padding: '1rem', background: 'var(--color-surface)', borderRadius: '8px' }}>
+              <h3 style={{ fontSize: '1.2rem', fontFamily: 'var(--font-serif)', marginBottom: '1rem', color: 'var(--color-accent)' }}>4. Transparent Shipping Cost</h3>
+              <p style={{ fontSize: '0.95rem', opacity: 0.7, lineHeight: 1.5 }}>Shipping is calculated based on destination, package weight, size, and courier service.</p>
+            </div>
+            <div style={{ textAlign: 'center', padding: '1rem', background: 'var(--color-surface)', borderRadius: '8px' }}>
+              <h3 style={{ fontSize: '1.2rem', fontFamily: 'var(--font-serif)', marginBottom: '1rem', color: 'var(--color-accent)' }}>5. Tracked Dispatch</h3>
+              <p style={{ fontSize: '0.95rem', opacity: 0.7, lineHeight: 1.5 }}>Customers receive tracking after dispatch and can follow the journey to their door.</p>
+            </div>
+            <div style={{ textAlign: 'center', padding: '1rem', background: 'var(--color-surface)', borderRadius: '8px' }}>
+              <h3 style={{ fontSize: '1.2rem', fontFamily: 'var(--font-serif)', marginBottom: '1rem', color: 'var(--color-accent)' }}>6. Safe Arrival Support</h3>
+              <p style={{ fontSize: '0.95rem', opacity: 0.7, lineHeight: 1.5 }}>If an item arrives damaged, contact support within 48 hours for immediate assistance.</p>
             </div>
           </div>
           
-          <div style={{ textAlign: 'center', marginTop: '5rem' }}>
-            <a href="/transparency" style={{ display: 'inline-block', borderBottom: '1px solid var(--color-foreground)', paddingBottom: '4px', textDecoration: 'none', color: 'var(--color-foreground)', fontFamily: 'var(--font-sans)', fontSize: '0.85rem', letterSpacing: '0.1em', fontWeight: 500, transition: 'opacity 0.2s ease' }}>
-              DISCOVER OUR PROCESS
+          <div style={{ textAlign: 'center', marginTop: '4rem' }}>
+            <a href="/packaging-safe-arrival" className="btn-primary" style={{ display: 'inline-block', padding: '1rem 2rem', textDecoration: 'none' }}>
+              See Our Care Journey
             </a>
+          </div>
+        </div>
+      </section>
+
+      {/* Transparent by Design Section */}
+      <section style={{ padding: '8rem 2rem', backgroundColor: 'var(--color-surface)' }}>
+        <div className="container" style={{ maxWidth: '1200px' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginBottom: '5rem' }}>
+            <h2 style={{ fontSize: '3.5rem', fontFamily: 'var(--font-serif)', color: 'var(--color-foreground)', textAlign: 'center', margin: 0, marginBottom: '1rem' }}>
+              Transparent by Design
+            </h2>
+            <p style={{ fontSize: '1.2rem', maxWidth: '600px', textAlign: 'center', color: 'var(--color-foreground)', opacity: 0.8, fontWeight: 300, lineHeight: 1.6 }}>
+              We believe trust begins with clarity. Your purchase supports craft value, quality control, premium packaging, international logistics, and customer care.
+            </p>
+          </div>
+
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem', maxWidth: '800px', margin: '0 auto' }}>
+            <div style={{ padding: '2rem', borderBottom: '1px solid var(--color-border)' }}>
+              <h4 style={{ fontSize: '1.1rem', color: 'var(--color-accent)', marginBottom: '0.5rem' }}>Product Craft Value</h4>
+              <p style={{ fontSize: '0.9rem', opacity: 0.7 }}>Artisan work, material, technique, and finishing.</p>
+            </div>
+            <div style={{ padding: '2rem', borderBottom: '1px solid var(--color-border)' }}>
+              <h4 style={{ fontSize: '1.1rem', color: 'var(--color-accent)', marginBottom: '0.5rem' }}>Quality Check</h4>
+              <p style={{ fontSize: '0.9rem', opacity: 0.7 }}>Inspection before dispatch.</p>
+            </div>
+            <div style={{ padding: '2rem', borderBottom: '1px solid var(--color-border)' }}>
+              <h4 style={{ fontSize: '1.1rem', color: 'var(--color-accent)', marginBottom: '0.5rem' }}>Elite Packaging</h4>
+              <p style={{ fontSize: '0.9rem', opacity: 0.7 }}>Protective wrapping, cushioning, garment care, and box strength.</p>
+            </div>
+            <div style={{ padding: '2rem', borderBottom: '1px solid var(--color-border)' }}>
+              <h4 style={{ fontSize: '1.1rem', color: 'var(--color-accent)', marginBottom: '0.5rem' }}>International Logistics</h4>
+              <p style={{ fontSize: '0.9rem', opacity: 0.7 }}>Courier movement from India to your destination country.</p>
+            </div>
+            <div style={{ padding: '2rem' }}>
+              <h4 style={{ fontSize: '1.1rem', color: 'var(--color-accent)', marginBottom: '0.5rem' }}>Customs Handling</h4>
+              <p style={{ fontSize: '0.9rem', opacity: 0.7 }}>Export documentation and destination-country processing.</p>
+            </div>
+            <div style={{ padding: '2rem' }}>
+              <h4 style={{ fontSize: '1.1rem', color: 'var(--color-accent)', marginBottom: '0.5rem' }}>Customer Support</h4>
+              <p style={{ fontSize: '0.9rem', opacity: 0.7 }}>Tracking help, delivery support, and safe-arrival assistance.</p>
+            </div>
           </div>
         </div>
       </section>

@@ -62,9 +62,24 @@ export default function ProductDetail() {
             <p style={{ fontSize: '1.5rem', marginBottom: '2rem' }}>
               {formatPrice(product.price, currency)}
             </p>
-            <p style={{ color: 'rgba(252, 250, 248, 0.8)', lineHeight: 1.8, marginBottom: '3rem' }}>
-              {product.description}
-            </p>
+            <div style={{ color: 'rgba(252, 250, 248, 0.8)', lineHeight: 1.8, marginBottom: '3rem' }}>
+              <p style={{ marginBottom: '1.5rem' }}>{product.description}</p>
+              
+              {/* Block 2: Craft & Material Details */}
+              <div style={{ borderTop: '1px solid var(--color-border)', borderBottom: '1px solid var(--color-border)', padding: '1.5rem 0', marginTop: '2rem' }}>
+                <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem', fontSize: '0.9rem' }}>
+                  <li><strong>Material:</strong> Premium Authentic Blend</li>
+                  <li><strong>Craft Technique:</strong> Regional Hand-finished</li>
+                  <li><strong>Origin:</strong> Artisanal Clusters</li>
+                  <li><strong>Size/Fit:</strong> Standard Global Sizing</li>
+                  <li><strong>Country of Origin:</strong> India</li>
+                  <li><strong>Care Instructions:</strong> Dry Clean Only</li>
+                </ul>
+                <p style={{ fontSize: '0.85rem', color: 'rgba(252, 250, 248, 0.6)', marginTop: '1rem', fontStyle: 'italic' }}>
+                  Note: Small differences in color, texture, or finish are natural in handcrafted products. These are not defects, but signs of human skill and handmade individuality.
+                </p>
+              </div>
+            </div>
 
             <div style={{ marginBottom: '2rem' }}>
               <p style={{ textTransform: 'uppercase', fontSize: '0.9rem', letterSpacing: '0.1em', marginBottom: '1rem' }}>Size</p>
@@ -90,7 +105,7 @@ export default function ProductDetail() {
 
             <button 
               className="btn-primary" 
-              style={{ width: '100%', padding: '1.2rem', fontSize: '1rem', marginBottom: '3rem' }}
+              style={{ width: '100%', padding: '1.2rem', fontSize: '1rem', marginBottom: '2rem' }}
               onClick={() => {
                 addToCart({
                   id: product.id,
@@ -109,45 +124,54 @@ export default function ProductDetail() {
               Add to Cart
             </button>
 
-            {/* The Karigar Care Journey Trust Block */}
+            {/* Block 3: Shipping Transparency */}
+            <div style={{ marginBottom: '2rem' }}>
+              <h4 style={{ fontSize: '1rem', fontFamily: 'var(--font-serif)', marginBottom: '0.5rem', color: 'var(--color-accent)' }}>Shipping Transparency</h4>
+              <p style={{ fontSize: '0.9rem', color: 'rgba(252, 250, 248, 0.7)', lineHeight: 1.6 }}>
+                Shipping is calculated at checkout based on your delivery country, product weight, package size, courier service, and protective packaging needs. We do not hide logistics costs inside inflated product prices.
+              </p>
+            </div>
+
+            {/* Block 4: Elite Protective Packaging */}
+            <div style={{ marginBottom: '3rem' }}>
+              <h4 style={{ fontSize: '1rem', fontFamily: 'var(--font-serif)', marginBottom: '0.5rem', color: 'var(--color-accent)' }}>Elite Protective Packaging</h4>
+              <p style={{ fontSize: '0.9rem', color: 'rgba(252, 250, 248, 0.7)', lineHeight: 1.6 }}>
+                Your item is folded, wrapped, cushioned, and boxed according to its material and fragility. Premium garments are packed to reduce unnecessary creasing, moisture exposure, and transit damage.
+              </p>
+            </div>
+
+            {/* Block 5: The IDFIS Karigar Care Journey™ */}
             <div style={{ 
-              marginTop: '3rem', 
               padding: '2rem', 
               background: 'var(--color-surface)', 
               borderRadius: 'var(--radius-md)',
               border: '1px solid var(--color-border)'
             }}>
-              <h3 style={{ fontSize: '1.2rem', fontFamily: 'var(--font-serif)', marginBottom: '1.5rem', borderBottom: '1px solid var(--color-border)', paddingBottom: '0.5rem' }}>
-                The Karigar Care Journey™
+              <h3 style={{ fontSize: '1.2rem', fontFamily: 'var(--font-serif)', marginBottom: '1.5rem', borderBottom: '1px solid var(--color-border)', paddingBottom: '0.5rem', color: 'var(--color-accent)' }}>
+                The IDFIS Karigar Care Journey™
               </h3>
-              <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-                <li style={{ display: 'flex', alignItems: 'center', gap: '1rem', fontSize: '0.9rem' }}>
-                  <span style={{ color: 'var(--color-foreground)' }}>
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
-                  </span>
-                  <span><strong>Authentic Indian Craft:</strong> Sourced directly from regional artisans.</span>
+              <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
+                <li style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.85rem' }}>
+                  <span>✓</span> Craft Verified
                 </li>
-                <li style={{ display: 'flex', alignItems: 'center', gap: '1rem', fontSize: '0.9rem' }}>
-                  <span style={{ color: 'var(--color-foreground)' }}>
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
-                  </span>
-                  <span><strong>Packed to Travel Safely™:</strong> Custom packaging for international transit.</span>
+                <li style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.85rem' }}>
+                  <span>✓</span> Quality Checked
                 </li>
-                <li style={{ display: 'flex', alignItems: 'center', gap: '1rem', fontSize: '0.9rem' }}>
-                  <span style={{ color: 'var(--color-foreground)' }}>
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.2-1.1.6L3 8l6 4-3 3-3-1-2 2 4 4 2-2-1-3 3-3 4 6l1.2-.7c.4-.2.7-.6.6-1.1z"></path></svg>
-                  </span>
-                  <span><strong>Tracked Delivery:</strong> Transparent logistics with zero hidden markups.</span>
+                <li style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.85rem' }}>
+                  <span>✓</span> Safely Packed
                 </li>
-                <li style={{ display: 'flex', alignItems: 'center', gap: '1rem', fontSize: '0.9rem' }}>
-                  <span style={{ color: 'var(--color-foreground)' }}>
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
-                  </span>
-                  <span><strong>48-Hour Guarantee:</strong> Resolve damage issues within 48 hours.</span>
+                <li style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.85rem' }}>
+                  <span>✓</span> Transparent Shipping
+                </li>
+                <li style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.85rem' }}>
+                  <span>✓</span> Tracked Dispatch
+                </li>
+                <li style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.85rem' }}>
+                  <span>✓</span> Arrival Support
                 </li>
               </ul>
               <div style={{ textAlign: 'center', marginTop: '1.5rem' }}>
-                <a href="/packaging-safe-arrival" style={{ fontSize: '0.85rem', textDecoration: 'underline', color: 'var(--color-accent)' }}>Learn about our packaging</a>
+                <a href="/packaging-safe-arrival" style={{ fontSize: '0.85rem', textDecoration: 'underline', color: 'var(--color-accent)' }}>Learn about our process</a>
               </div>
             </div>
           </div>

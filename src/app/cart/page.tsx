@@ -54,8 +54,33 @@ export default function CartPage() {
               <span style={{ fontSize: '1.5rem', fontFamily: 'var(--font-serif)' }}>Total</span>
               <span style={{ fontSize: '2rem' }}>{formatPrice(cartTotalINR, currency)}</span>
             </div>
-            <div style={{ display: 'flex', justifyContent: 'flex-end', marginTop: '2rem' }}>
-              <Link href="/checkout" className="btn-primary">Proceed to Checkout</Link>
+            <div style={{ display: 'flex', justifyContent: 'flex-end', marginTop: '2rem', marginBottom: '3rem' }}>
+              <Link href="/checkout" className="btn-primary" style={{ width: '300px', textAlign: 'center' }}>Proceed to Checkout</Link>
+            </div>
+
+            <div style={{ padding: '2rem', background: 'var(--color-surface)', borderRadius: '8px', border: '1px solid var(--color-border)', marginBottom: '4rem' }}>
+              <h3 style={{ fontSize: '1.1rem', fontFamily: 'var(--font-serif)', marginBottom: '1rem', color: 'var(--color-accent)' }}>International Order Note</h3>
+              <p style={{ fontSize: '0.9rem', color: 'rgba(252, 250, 248, 0.7)', lineHeight: 1.6, marginBottom: '2rem' }}>
+                Your final shipping cost is calculated transparently based on destination, courier availability, package weight, and protective packaging requirements. Duties, VAT, or import taxes may apply depending on your country and will be shown at checkout where supported.
+              </p>
+              
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '2rem' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.85rem' }}>
+                  <span>🔒</span> Secure Checkout
+                </div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.85rem' }}>
+                  <span>📦</span> Tracked Dispatch
+                </div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.85rem' }}>
+                  <span>✨</span> Elite Packaging
+                </div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.85rem' }}>
+                  <span>✈️</span> Global Shipping
+                </div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.85rem' }}>
+                  <span>🛡️</span> Safe Arrival Support
+                </div>
+              </div>
             </div>
           </div>
         )}
