@@ -3,8 +3,7 @@ import HeroSection from '@/components/HeroSection';
 import TrustMarquee from '@/components/TrustMarquee';
 import CategoryShowcase from '@/components/CategoryShowcase';
 import WhoWeAre from '@/components/WhoWeAre';
-import TransparentByDesign from '@/components/TransparentByDesign';
-import CareJourney from '@/components/CareJourney';
+
 import Footer from '@/components/Footer';
 import Link from 'next/link';
 
@@ -116,11 +115,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* The Karigar Care Journey Section */}
-      <CareJourney />
 
-      {/* Transparent by Design Section */}
-      <TransparentByDesign />
 
       {/* Artisans Preview & Reviews */}
       <section style={{ padding: '8rem 2rem', backgroundColor: 'var(--color-surface)', borderTop: '1px solid var(--color-border)' }}>
