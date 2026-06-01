@@ -1,16 +1,25 @@
 .header {
   position: sticky;
   top: 0;
-  z-index: 100;
-  background-color: var(--color-background);
-  border-bottom: 1px solid var(--color-border);
-  padding: 1rem 2rem;
+  width: 100%;
+  z-index: 50;
+  background-color: transparent;
+  transition: all 0.3s ease;
+  border-bottom: 1px solid transparent;
+}
+
+.header.scrolled {
+  background-color: rgba(18, 18, 18, 0.95);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(252, 250, 248, 0.1);
 }
 
 .topBar {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 1rem 2rem;
   max-width: 1400px;
   margin: 0 auto;
 }
@@ -22,18 +31,58 @@
 }
 
 .navGroupLeft a {
-  font-family: var(--font-sans);
-  font-size: 0.75rem;
-  font-weight: 500;
-  letter-spacing: 0.05em;
   color: var(--color-foreground);
   text-decoration: none;
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  transition: color var(--transition-fast);
+  transition: color 0.3s ease;
+  cursor: pointer;
 }
 
 .navGroupLeft a:hover {
   color: var(--color-accent);
+}
+
+/* Dropdown */
+.dropdownParent {
+  position: relative;
+  padding-bottom: 1rem;
+  margin-bottom: -1rem;
+}
+
+.dropdownMenu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  min-width: 200px;
+  padding: 1rem 0;
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: all 0.2s ease;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  z-index: 100;
+}
+
+.dropdownParent:hover .dropdownMenu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.dropdownMenu a {
+  padding: 0.75rem 1.5rem;
+  font-size: 0.8rem;
+  white-space: nowrap;
+}
+
+.dropdownMenu a:hover {
+  background: rgba(252, 250, 248, 0.05);
 }
 
 .logoCenter {
@@ -43,34 +92,151 @@
 }
 
 .iconGroupRight {
+  flex: 1;
   display: flex;
   justify-content: flex-end;
-  align-items: center;
   gap: 1.5rem;
-  flex: 1;
+  align-items: center;
 }
 
 .iconBtn {
   background: none;
   border: none;
+  color: var(--color-foreground);
   font-size: 1.2rem;
   cursor: pointer;
-  color: var(--color-foreground);
+  transition: color 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-decoration: none;
-  position: relative;
+}
+
+.iconBtn:hover {
+  color: var(--color-accent);
 }
 
 .cartBadge {
   position: absolute;
   top: -8px;
-  right: -10px;
+  right: -8px;
   background: var(--color-accent);
-  color: white;
-  font-size: 0.65rem;
-  width: 18px;
-  height: 18px;
+  color: #000;
+  font-size: 0.6rem;
+  font-weight: bold;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 50%;
+}
+
+.currencySelectWrap {
+  position: relative;
+}
+
+.currencySelect {
+  background: transparent;
+  color: var(--color-foreground);
+  border: none;
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  font-family: var(--font-sans);
+  cursor: pointer;
+  outline: none;
+  appearance: none;
+  padding-right: 1rem;
+}
+
+.currencySelect option {
+  background: var(--color-surface);
+  color: var(--color-foreground);
+}
+
+.currencySelectWrap::after {
+  content: '▼';
+  font-size: 0.5rem;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.mobileLeft {
+  display: none;
+  flex: 1;
+}
+
+.hamburgerBtn, .closeBtn {
+  background: none;
+  border: none;
+  color: var(--color-foreground);
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mobileDrawer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--color-background);
+  z-index: 200;
+  transform: translateX(-100%);
+  transition: transform 0.4s cubic-bezier(0.77, 0, 0.175, 1);
+  overflow-y: auto;
+}
+
+.mobileDrawerOpen {
+  transform: translateX(0);
+}
+
+.mobileDrawerHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.mobileNav {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 1.5rem;
+}
+
+.mobileNav a, .mobileNavCategory {
+  font-family: var(--font-serif);
+  font-size: 2rem;
+  color: var(--color-foreground);
+  text-decoration: none;
+  margin-bottom: 1.5rem;
+}
+
+.mobileNavCategory {
+  color: rgba(252, 250, 248, 0.5);
+  margin-bottom: 1rem;
+}
+
+.mobileSubLink {
+  font-size: 1.2rem !important;
+  font-family: var(--font-sans) !important;
+  padding-left: 1rem;
+  margin-bottom: 1rem !important;
+  color: rgba(252, 250, 248, 0.8) !important;
+}
+
+@media (max-width: 1024px) {
+  .navGroupLeft {
+    display: none;
+  }
+  .mobileLeft {
+    display: flex;
+  }
 }

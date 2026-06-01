@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import styles from './HeroSection.module.css';
 
 export default function HeroSection() {
@@ -5,17 +6,19 @@ export default function HeroSection() {
     <section className={styles.heroWrapper}>
       <div className={styles.leftCol}>
         <div className={styles.heroContent}>
-          <h1 className={styles.brandTitle}>I D F I S</h1>
+          <p className={styles.eyebrow}>AUTHENTIC INDIAN CRAFT</p>
+          <h1 className={styles.brandTitle}>India’s Handcrafted Heritage, Curated for the Global Luxury Wardrobe</h1>
           <p className={styles.heroTagline}>
-            TIMELESS ELEGANCE.<br />
-            UNCOMPROMISING CRAFT.
+            Discover craft-led sarees, coats, silk kurtas, accessories, and meaningful pieces made with Indian artistry, refined for modern global living.
           </p>
-          <button className={styles.shopBtn}>EXPLORE COLLECTION</button>
-        </div>
-        <div className={styles.pagination}>
-          <span className={`${styles.dot} ${styles.active}`}></span>
-          <span className={styles.dot}></span>
-          <span className={styles.dot}></span>
+          <div className={styles.btnGroup}>
+            <Link href="/collections/all" className="btn-primary" style={{ textDecoration: 'none', padding: '1rem 2rem', display: 'inline-block' }}>
+              Shop New Arrivals
+            </Link>
+            <Link href="/our-story" className="btn-secondary" style={{ textDecoration: 'none', padding: '1rem 2rem', display: 'inline-block', border: '1px solid var(--color-border)', color: 'var(--color-foreground)', marginLeft: '1rem' }}>
+              Explore Our Story
+            </Link>
+          </div>
         </div>
       </div>
       <div className={styles.rightCol}>

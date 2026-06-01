@@ -6,64 +6,82 @@ export default function Footer() {
   return (
     <footer className={styles.footer}>
       <div className={styles.container}>
-        <div className={styles.brand}>
-          <div className={styles.logo}>
-            <Image 
-              src="/images/idfis-transparent.svg" 
-              alt="IDFIS" 
-              width={160} 
-              height={50} 
-            />
+        <div className={styles.topSection}>
+          <div className={styles.brandColumn}>
+            <div className={styles.logo}>
+              <Image 
+                src="/images/idfis-transparent.svg" 
+                alt="IDFIS" 
+                width={180} 
+                height={60} 
+              />
+            </div>
+            <p className={styles.tagline}>
+              Indian craft heritage, curated for the global luxury wardrobe.
+            </p>
+            <div className={styles.newsletter}>
+              <h4>Join the IDFIS Circle</h4>
+              <p className={styles.newsletterDesc}>Limited drops, craft stories, and thoughtful updates.</p>
+              <form style={{ display: 'flex', gap: '0.5rem', marginTop: '1rem' }}>
+                <input type="email" placeholder="Enter your email" className={styles.input} />
+                <button type="submit" className="btn-primary" style={{ padding: '0.8rem 1.5rem', minWidth: 'auto', fontSize: '0.85rem' }}>Join the Circle</button>
+              </form>
+              <p className={styles.privacyNote}>No spam. Only thoughtful updates from IDFIS.</p>
+            </div>
           </div>
-          <p className={styles.description}>
-            Less but better. Focus on the most important elements of each garment, and let go of everything superfluous.
-          </p>
-          <form className={styles.newsletter}>
-            <input type="email" placeholder="Your email address" className={styles.input} />
-            <button type="submit" className="btn-primary" style={{ padding: '1rem' }}>Join</button>
-          </form>
-        </div>
 
-        <div className={styles.navGroup}>
-          <h4>Shop</h4>
-          <ul className={styles.navLinks}>
-            <li><Link href="/collections/kashmir-coats">Kashmir Coats</Link></li>
-            <li><Link href="/collections/kurtas">Elegant Kurtas</Link></li>
-            <li><Link href="/collections/sarees">Heritage Sarees</Link></li>
-            <li><Link href="/collections/accessories">Artisan Accessories</Link></li>
-          </ul>
-        </div>
+          <div className={styles.linksGrid}>
+            <div className={styles.navGroup}>
+              <h4>Shop</h4>
+              <ul className={styles.navLinks}>
+                <li><Link href="/collections/all">New Arrivals</Link></li>
+                <li><Link href="/collections/kashmir-coats">Kashmir Coats</Link></li>
+                <li><Link href="/collections/sarees">Heritage Sarees</Link></li>
+                <li><Link href="/collections/kurtas">Silk Kurtas</Link></li>
+                <li><Link href="/collections/accessories">Artisan Accessories</Link></li>
+                <li><Link href="/collections/gifts">Gifts</Link></li>
+              </ul>
+            </div>
 
-        <div className={styles.navGroup}>
-          <h4>The Karigar Care Journey™</h4>
-          <ul className={styles.navLinks}>
-            <li><Link href="/shipping-delivery">Shipping & Delivery</Link></li>
-            <li><Link href="/packaging-safe-arrival">Packaging & Safe Arrival</Link></li>
-            <li><Link href="/authenticity">Authenticity Promise</Link></li>
-            <li><Link href="/returns-damage-policy">Returns & Damage Policy</Link></li>
-            <li><Link href="/faq">FAQ</Link></li>
-          </ul>
-        </div>
+            <div className={styles.navGroup}>
+              <h4>About IDFIS</h4>
+              <ul className={styles.navLinks}>
+                <li><Link href="/our-story">Our Story</Link></li>
+                <li><Link href="/artisans">Artisans</Link></li>
+                <li><Link href="/authenticity">Authenticity Promise</Link></li>
+                <li><Link href="/packaging-safe-arrival">Care Journey</Link></li>
+              </ul>
+            </div>
 
-        <div className={styles.navGroup}>
-          <h4>About IDFIS</h4>
-          <ul className={styles.navLinks}>
-            <li><Link href="/our-story">Our Story</Link></li>
-            <li><Link href="/artisans">Artisans</Link></li>
-            <li><Link href="/contact">Contact</Link></li>
-          </ul>
+            <div className={styles.navGroup}>
+              <h4>Customer Care</h4>
+              <ul className={styles.navLinks}>
+                <li><Link href="/shipping-delivery">Shipping & Delivery</Link></li>
+                <li><Link href="/packaging-safe-arrival">Packaging & Safe Arrival</Link></li>
+                <li><Link href="/returns-damage-policy">Returns & Damage Policy</Link></li>
+                <li><Link href="/faq">FAQ</Link></li>
+                <li><Link href="/contact">Contact</Link></li>
+                <li><Link href="/track-order">Track Order</Link></li>
+              </ul>
+            </div>
+
+            <div className={styles.navGroup}>
+              <h4>Legal</h4>
+              <ul className={styles.navLinks}>
+                <li><Link href="/privacy-policy">Privacy Policy</Link></li>
+                <li><Link href="/terms-of-service">Terms of Service</Link></li>
+                <li><Link href="/refund-policy">Refund Policy</Link></li>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
 
-      <div className={styles.bottom} style={{ borderTop: '1px solid var(--color-border)', paddingTop: '2rem', marginTop: '2rem' }}>
-        <p style={{ fontFamily: 'var(--font-serif)', fontSize: '1.2rem', color: 'var(--color-accent)', marginBottom: '1rem' }}>
-          Indian craft heritage, curated for the global luxury wardrobe.
-        </p>
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-          <p style={{ opacity: 0.6, fontSize: '0.85rem' }}>&copy; {new Date().getFullYear()} IDFIS.</p>
-          <div style={{ display: 'flex', gap: '1.5rem', opacity: 0.6, fontSize: '0.85rem' }}>
-            <Link href="/privacy">Privacy Policy</Link>
-            <Link href="/terms">Terms of Service</Link>
+      <div className={styles.bottom}>
+        <div className={styles.bottomContainer}>
+          <p className={styles.copyright}>&copy; {new Date().getFullYear()} IDFIS.</p>
+          <div className={styles.bottomLinks}>
+            <span>Secured by IDFIS Global Commerce</span>
           </div>
         </div>
       </div>

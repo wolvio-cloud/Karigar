@@ -202,6 +202,9 @@ export default function CheckoutPage() {
             >
               {loading ? 'PROCESSING...' : 'COMPLETE ORDER'}
             </button>
+            <p style={{ fontSize: '0.8rem', color: 'rgba(252, 250, 248, 0.6)', marginTop: '1.5rem', lineHeight: 1.5, textAlign: 'center' }}>
+              Your order will be quality checked, packed with care, and dispatched with tracking. Shipping, duties, and taxes are shown where supported before payment.
+            </p>
           </div>
         </div>
       </div>

@@ -1,13 +1,14 @@
 import type { Metadata } from 'next';
 import './globals.css';
 import { Providers } from './Providers';
+import AnnouncementBar from '@/components/AnnouncementBar';
 
 export const metadata: Metadata = {
-  title: 'IDFIS | Authentic Indian Handcrafts',
-  description: 'Shop high-end handcrafted textiles, Kashmir coats, and heritage sarees made by skilled Indian artisans.',
+  title: 'IDFIS | Luxury Indian Handcrafted Apparel & Artisan Pieces',
+  description: 'Discover IDFIS, a premium Indian handcrafted brand offering craft-led sarees, Kashmir coats, silk kurtas, artisan accessories, transparent global shipping, and elite protective packaging.',
   openGraph: {
-    title: 'IDFIS',
-    description: 'Authentic Indian handcrafted pieces for homes around the world.',
+    title: 'IDFIS | Luxury Indian Handcrafted Apparel & Artisan Pieces',
+    description: 'Discover IDFIS, a premium Indian handcrafted brand offering craft-led sarees, Kashmir coats, silk kurtas, artisan accessories, transparent global shipping, and elite protective packaging.',
     url: 'https://idfis.com',
     siteName: 'IDFIS',
     images: [
@@ -31,6 +32,7 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <Providers>
+          <AnnouncementBar />
           {children}
         </Providers>
       </body>

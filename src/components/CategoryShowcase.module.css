@@ -1,170 +1,124 @@
-.headerRow {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 2rem;
-  padding-top: 2rem;
-}
-
 .sectionTitle {
   font-family: var(--font-serif);
   font-size: 2.5rem;
-  font-weight: 300;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--color-foreground);
+  margin: 0;
 }
 
 .viewAllBtn {
-  font-family: var(--font-sans);
-  font-size: 0.65rem;
-  font-weight: 600;
+  font-size: 0.8rem;
   letter-spacing: 0.1em;
-  color: var(--color-foreground);
   text-decoration: none;
-  border: 1px solid var(--color-border);
-  padding: 0.5rem 1.5rem;
-  border-radius: 50px;
-  transition: all var(--transition-fast);
+  color: var(--color-accent);
+  border-bottom: 1px solid var(--color-accent);
+  padding-bottom: 0.2rem;
+  transition: opacity 0.3s ease;
 }
 
 .viewAllBtn:hover {
-  background: var(--color-foreground);
-  color: var(--color-background);
+  opacity: 0.7;
 }
 
-/* Bento Grid System */
 .bentoGrid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1.5rem;
-  height: 800px; /* Fixed height to control the masonry look */
-}
-
-.rightCol {
   display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
+  gap: 1rem;
+  height: 800px;
 }
 
-.bottomRow {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1.5rem;
-  height: 50%;
-}
-
-/* Card Foundations */
 .card {
   position: relative;
-  display: block;
-  border-radius: 16px;
   overflow: hidden;
+  display: block;
   text-decoration: none;
-  color: var(--color-foreground);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: #111;
+  border-radius: 4px;
 }
 
-.card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 24px rgba(0,0,0,0.08);
-}
-
-/* Mix blend mode multiply makes the white background of the AI images disappear into the card color */
 .productImg {
-  position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
   height: 100%;
-  object-fit: contain;
-  mix-blend-mode: multiply;
-  transition: transform 0.5s ease;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .card:hover .productImg {
-  transform: scale(1.05); /* Slight zoom on hover */
+  transform: scale(1.05);
 }
 
-/* Specific Card Colors and Layouts based on INOVA reference */
-.mainCard {
-  background-color: #C3D5D7; /* Soft pastel blue/grey */
-  height: 100%;
-}
-
-.wideCard {
-  background-color: #EFE8D8; /* Soft warm yellow/cream */
-  height: 50%;
-}
-
-.squareCard1 {
-  background-color: #D3CFC6; /* Soft taupe */
-}
-
-.squareCard2 {
-  background-color: #C6D7C9; /* Soft mint green */
-}
-
-/* Typography inside cards */
 .cardContent {
   position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
-  padding: 2rem;
+  padding: 2.5rem;
+  background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 100%);
   display: flex;
   flex-direction: column;
+  color: #fff;
 }
 
 .cardContent h3 {
-  font-family: var(--font-sans);
-  font-size: 1.25rem;
-  font-weight: 400;
-  letter-spacing: 0.1em;
-  margin-bottom: 0.25rem;
+  font-family: var(--font-serif);
+  font-size: 2rem;
+  margin: 0 0 0.5rem 0;
 }
 
 .cardContent p {
   font-family: var(--font-sans);
-  font-size: 0.75rem;
-  opacity: 0.7;
+  font-size: 0.9rem;
+  opacity: 0.8;
+  margin: 0;
 }
 
 .arrow {
   position: absolute;
-  bottom: 2rem;
-  right: 2rem;
-  font-size: 1.2rem;
-  opacity: 0.5;
-  transition: opacity 0.2s ease, transform 0.2s ease;
+  bottom: 2.5rem;
+  right: 2.5rem;
+  font-size: 1.5rem;
+  opacity: 0;
+  transform: translateX(-10px);
+  transition: all 0.3s ease;
+  color: var(--color-accent);
 }
 
 .card:hover .arrow {
   opacity: 1;
-  transform: translateX(4px);
+  transform: translateX(0);
 }
 
-/* Responsive */
-@media (max-width: 900px) {
+.mainCard {
+  flex: 1;
+}
+
+.rightCol {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.wideCard {
+  flex: 1;
+}
+
+.bottomRow {
+  flex: 1;
+  display: flex;
+  gap: 1rem;
+}
+
+.squareCard1, .squareCard2 {
+  flex: 1;
+}
+
+@media (max-width: 1024px) {
   .bentoGrid {
-    grid-template-columns: 1fr;
+    flex-direction: column;
     height: auto;
   }
-  
-  .mainCard {
-    height: 500px;
+  .mainCard, .rightCol, .wideCard, .bottomRow {
+    min-height: 400px;
   }
-  
-  .wideCard {
-    height: 350px;
-  }
-  
   .bottomRow {
-    grid-template-columns: 1fr;
-    height: auto;
-  }
-  
-  .squareCard1, .squareCard2 {
-    height: 350px;
+    flex-direction: column;
   }
 }

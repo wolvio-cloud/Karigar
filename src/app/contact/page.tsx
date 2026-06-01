@@ -1,70 +1,64 @@
-'use client';
-
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import styles from '../about.module.css';
-import { useState } from 'react';
 
-export default function ContactUs() {
-  const [submitted, setSubmitted] = useState(false);
-
+export default function Contact() {
   return (
-    <div className={styles.pageWrapper}>
+    <main>
       <Header />
-      
-      <div style={{ paddingTop: '8rem' }}>
-        <h1 className={styles.sectionTitle}>Contact Us</h1>
-      </div>
-
-      <div className={styles.contactGrid}>
-        <div>
-          <h3 style={{ fontSize: '2rem', marginBottom: '1.5rem', fontFamily: 'var(--font-serif)' }}>Get in touch</h3>
-          <p className={styles.textBlock} style={{ marginBottom: '3rem' }}>
-            Whether you have a question about our heritage sarees, need styling advice for your Kashmir coat, or want to inquire about a custom commission, our concierge team is here to assist you.
+      <div className="container" style={{ paddingTop: '8rem', paddingBottom: '6rem', maxWidth: '800px', minHeight: '80vh' }}>
+        <h1 style={{ fontSize: '3rem', fontFamily: 'var(--font-serif)', marginBottom: '2rem', textAlign: 'center' }}>
+          How Can We Help?
+        </h1>
+        <div style={{ color: 'rgba(252, 250, 248, 0.85)', lineHeight: 1.8, fontSize: '1.05rem', fontFamily: 'var(--font-sans)', fontWeight: 300, textAlign: 'center' }}>
+          <p style={{ marginBottom: '4rem', maxWidth: '600px', margin: '0 auto 4rem auto' }}>
+            Whether you have a question about sizing, shipping, packaging, customs, or a specific handcrafted piece, the IDFIS team is here to help.
           </p>
-          
-          <div style={{ marginBottom: '2rem' }}>
-            <h4 style={{ fontFamily: 'var(--font-sans)', fontWeight: 600, fontSize: '0.9rem', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '0.5rem' }}>Boutique & Atelier</h4>
-            <p className={styles.textBlock} style={{ fontSize: '1rem' }}>
-              2/234 Thotta saalai, Sedapalayam<br />
-              Palladam, 641664<br />
-              Tiruppur, Tamil Nadu, India
-            </p>
-          </div>
 
-          <div>
-            <h4 style={{ fontFamily: 'var(--font-sans)', fontWeight: 600, fontSize: '0.9rem', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '0.5rem' }}>Direct Inquiries</h4>
-            <p className={styles.textBlock} style={{ fontSize: '1rem' }}>
-              admin@idfis.com
-            </p>
-          </div>
-        </div>
-
-        <div style={{ background: 'var(--color-surface)', padding: '3rem', borderRadius: '4px' }}>
-          {submitted ? (
-            <div style={{ textAlign: 'center', padding: '4rem 0' }}>
-              <h3 style={{ fontSize: '2rem', marginBottom: '1rem', fontFamily: 'var(--font-serif)' }}>Message Sent</h3>
-              <p className={styles.textBlock}>Thank you for reaching out. Our concierge will be in touch shortly.</p>
+          <form style={{ display: 'flex', flexDirection: 'column', gap: '2rem', textAlign: 'left', background: 'var(--color-surface)', padding: '3rem', borderRadius: '8px', border: '1px solid var(--color-border)' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem' }}>
+              <div>
+                <label style={{ display: 'block', marginBottom: '0.5rem', fontSize: '0.9rem', color: 'var(--color-accent)' }}>Name</label>
+                <input type="text" style={{ width: '100%', padding: '1rem', background: 'transparent', border: '1px solid var(--color-border)', borderBottom: '2px solid var(--color-foreground)', color: 'var(--color-foreground)', outline: 'none' }} />
+              </div>
+              <div>
+                <label style={{ display: 'block', marginBottom: '0.5rem', fontSize: '0.9rem', color: 'var(--color-accent)' }}>Email</label>
+                <input type="email" style={{ width: '100%', padding: '1rem', background: 'transparent', border: '1px solid var(--color-border)', borderBottom: '2px solid var(--color-foreground)', color: 'var(--color-foreground)', outline: 'none' }} />
+              </div>
             </div>
-          ) : (
-            <form className={styles.contactForm} onSubmit={(e) => { e.preventDefault(); setSubmitted(true); }}>
-              <input type="text" className={styles.input} placeholder="Your Name" required />
-              <input type="email" className={styles.input} placeholder="Your Email Address" required />
-              <select className={styles.input} required defaultValue="">
-                <option value="" disabled>Subject of Inquiry</option>
-                <option value="order">Order Status</option>
-                <option value="styling">Styling Advice</option>
-                <option value="custom">Custom Commission</option>
-                <option value="other">Other</option>
-              </select>
-              <textarea className={styles.textarea} placeholder="How can we assist you?" required></textarea>
-              <button type="submit" className="btn-primary" style={{ marginTop: '1rem' }}>Send Message</button>
-            </form>
-          )}
+            
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem' }}>
+              <div>
+                <label style={{ display: 'block', marginBottom: '0.5rem', fontSize: '0.9rem', color: 'var(--color-accent)' }}>Order Number (Optional)</label>
+                <input type="text" style={{ width: '100%', padding: '1rem', background: 'transparent', border: '1px solid var(--color-border)', borderBottom: '2px solid var(--color-foreground)', color: 'var(--color-foreground)', outline: 'none' }} />
+              </div>
+              <div>
+                <label style={{ display: 'block', marginBottom: '0.5rem', fontSize: '0.9rem', color: 'var(--color-accent)' }}>Topic</label>
+                <select style={{ width: '100%', padding: '1rem', background: 'transparent', border: '1px solid var(--color-border)', borderBottom: '2px solid var(--color-foreground)', color: 'var(--color-foreground)', outline: 'none', appearance: 'none' }}>
+                  <option style={{ background: 'var(--color-surface)' }}>Product Question</option>
+                  <option style={{ background: 'var(--color-surface)' }}>Sizing Help</option>
+                  <option style={{ background: 'var(--color-surface)' }}>Shipping & Delivery</option>
+                  <option style={{ background: 'var(--color-surface)' }}>Duties & Customs</option>
+                  <option style={{ background: 'var(--color-surface)' }}>Damage / Issue</option>
+                  <option style={{ background: 'var(--color-surface)' }}>Wholesale / Collaboration</option>
+                  <option style={{ background: 'var(--color-surface)' }}>Other</option>
+                </select>
+              </div>
+            </div>
+
+            <div>
+              <label style={{ display: 'block', marginBottom: '0.5rem', fontSize: '0.9rem', color: 'var(--color-accent)' }}>Message</label>
+              <textarea rows={6} style={{ width: '100%', padding: '1rem', background: 'transparent', border: '1px solid var(--color-border)', borderBottom: '2px solid var(--color-foreground)', color: 'var(--color-foreground)', outline: 'none', resize: 'vertical' }}></textarea>
+            </div>
+
+            <button type="button" className="btn-primary" style={{ padding: '1.2rem', marginTop: '1rem' }}>Send Message</button>
+            <p style={{ fontSize: '0.85rem', color: 'rgba(252, 250, 248, 0.5)', textAlign: 'center', marginTop: '1rem' }}>
+              We aim to respond within 1–2 business days.<br/>
+              Or reach us directly at <a href="mailto:support@idfis.com" style={{ color: 'var(--color-accent)' }}>support@idfis.com</a>
+            </p>
+          </form>
         </div>
       </div>
-
       <Footer />
-    </div>
+    </main>
   );
 }
