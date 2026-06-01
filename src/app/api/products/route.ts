@@ -12,31 +12,33 @@ export async function GET(request: Request) {
     if (productSlug) {
       const product = await prisma.product.findUnique({
         where: { slug: productSlug },
-        include: { category: true }
+        include: { category: true, variants: true }
       });
       if (!product) return NextResponse.json({ error: 'Not found' }, { status: 404 });
       
       const formattedProduct = {
         ...product,
-        images: JSON.parse(product.images),
+        images: product.images ? JSON.parse(product.images) : [],
+        tags: product.tags ? JSON.parse(product.tags) : [],
       };
       return NextResponse.json(formattedProduct, { status: 200 });
     }
     else if (categorySlug) {
       products = await prisma.product.findMany({
         where: { category: { slug: categorySlug } },
-        include: { category: true }
+        include: { category: true, variants: true }
       });
     } else {
       products = await prisma.product.findMany({
-        include: { category: true }
+        include: { category: true, variants: true }
       });
     }
 
-    // Parse JSON images string back to array before sending
+    // Parse JSON strings back to array before sending
     const formattedProducts = products.map((product) => ({
       ...product,
-      images: JSON.parse(product.images),
+      images: product.images ? JSON.parse(product.images) : [],
+      tags: product.tags ? JSON.parse(product.tags) : [],
     }));
 
     return NextResponse.json(formattedProducts, { status: 200 });

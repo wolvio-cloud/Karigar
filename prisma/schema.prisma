@@ -18,18 +18,53 @@ model Category {
 }
 
 model Product {
-  id          String      @id @default(uuid())
-  title       String
-  slug        String      @unique
-  description String
-  price       Float
-  images      String      // Stored as JSON string of URLs
-  inventory   Int         @default(0)
-  categoryId  String
-  category    Category    @relation(fields: [categoryId], references: [id])
-  orderItems  OrderItem[]
-  createdAt   DateTime    @default(now())
-  updatedAt   DateTime    @updatedAt
+  id                String           @id @default(uuid())
+  title             String
+  slug              String           @unique
+  subtitle          String?
+  description       String // The Product Story
+  price             Float
+  images            String // Stored as JSON string of URLs
+  hoverImage        String? // 2nd image for card hover
+  inventory         Int              @default(0)
+  categoryId        String
+  category          Category         @relation(fields: [categoryId], references: [id])
+  
+  // Luxury Editorial Fields
+  craftOrigin       String?
+  giStatus          String? // Verified GI Heritage Craft / Regionally Recognized Craft / Inspired by Traditional Craft / Not Applicable
+  craftRegion       String?
+  artisanCluster    String?
+  material          String?
+  technique         String?
+  careInstructions  String?
+  countryOfOrigin   String           @default("India")
+  
+  // Logistics & Metadata
+  dispatchType      String           @default("Ready to Ship")
+  shippingNote      String?
+  packagingNote     String?
+  returnEligibility String           @default("Eligible for return within 7 days")
+  sku               String?          @unique
+  tags              String? // JSON string
+  seoTitle          String?
+  seoDescription    String?
+  
+  variants          ProductVariant[]
+  orderItems        OrderItem[]
+  createdAt         DateTime         @default(now())
+  updatedAt         DateTime         @updatedAt
+}
+
+model ProductVariant {
+  id        String   @id @default(uuid())
+  productId String
+  product   Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+  name      String // e.g. "Size: M", "Color: Crimson"
+  type      String // e.g. "Size", "Color"
+  value     String // e.g. "M", "Crimson"
+  sku       String?
+  inventory Int      @default(10)
 }
 
 model Order {

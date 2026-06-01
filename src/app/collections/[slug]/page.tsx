@@ -8,6 +8,7 @@ import { formatPrice } from '@/lib/data';
 import { useCurrency } from '@/context/CurrencyContext';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import QuickViewModal from '@/components/QuickViewModal';
 
 export default function CategoryListing() {
   const params = useParams();
@@ -16,13 +17,13 @@ export default function CategoryListing() {
   const [categoryProducts, setCategoryProducts] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
   
-  // Filter States
+  // States
   const [sortOption, setSortOption] = useState('Featured');
   const [filterActive, setFilterActive] = useState(false);
+  const [quickViewProduct, setQuickViewProduct] = useState<any | null>(null);
 
   useEffect(() => {
-    // If slug is 'all', fetch everything, else fetch by category
-    const url = slug === 'all' ? '/api/products' : `/api/products?category=${slug}`;
+    const url = slug === 'all' ? '/api/products' : \`/api/products?category=\${slug}\`;
     fetch(url)
       .then(res => res.json())
       .then(data => {
@@ -40,12 +41,20 @@ export default function CategoryListing() {
     'kurtas': { title: 'Silk Kurtas', desc: 'Elegant silhouettes for modern festive dressing.' },
     'sarees': { title: 'Heritage Sarees', desc: 'Timeless drapes rooted in India’s textile legacy.' },
     'accessories': { title: 'Artisan Accessories', desc: 'Small details with cultural character.' },
-    'gifts': { title: 'Gifts', desc: 'Curated artisanal gifts for the global wardrobe.' },
+    'home-decor': { title: 'Home & Decor', desc: 'Indian craft for refined global interiors.' },
+    'textiles': { title: 'Fine Textiles', desc: 'Handwoven stoles and dupattas celebrating Indian weaving heritage.' },
     'limited-editions': { title: 'Limited Editions', desc: 'Rare drops and small-batch masterworks.' },
     'all': { title: 'New Arrivals', desc: 'Discover our latest curation of authentic Indian handcrafted pieces.' }
   };
 
   const currentCategory = titleMap[slug] || { title: 'Collection', desc: 'Curated handcrafted pieces.' };
+
+  // Apply sorting
+  const sortedProducts = [...categoryProducts].sort((a, b) => {
+    if (sortOption === 'Price: Low to High') return a.price - b.price;
+    if (sortOption === 'Price: High to Low') return b.price - a.price;
+    return 0; // default featured/newest
+  });
 
   return (
     <main style={{ backgroundColor: 'var(--color-background)', minHeight: '100vh' }}>
@@ -60,6 +69,8 @@ export default function CategoryListing() {
           {currentCategory.desc}
         </p>
         <div style={{ fontSize: '0.8rem', textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--color-accent)', display: 'flex', gap: '1.5rem', flexWrap: 'wrap', justifyContent: 'center' }}>
+          <span>Craft-led</span>
+          <span style={{ opacity: 0.3 }}>|</span>
           <span>Quality checked in India</span>
           <span style={{ opacity: 0.3 }}>|</span>
           <span>Packed with care</span>
@@ -80,7 +91,7 @@ export default function CategoryListing() {
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon></svg>
               Filter
             </button>
-            <span style={{ opacity: 0.5, fontSize: '0.9rem' }}>{categoryProducts.length} Pieces</span>
+            <span style={{ opacity: 0.5, fontSize: '0.9rem' }}>{sortedProducts.length} Pieces</span>
           </div>
 
           <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
@@ -98,31 +109,37 @@ export default function CategoryListing() {
           </div>
         </div>
 
-        {/* Filter Drawer / Panel (Visually represented) */}
+        {/* Filter Drawer */}
         {filterActive && (
-          <div style={{ display: 'flex', gap: '2rem', marginBottom: '3rem', flexWrap: 'wrap' }}>
+          <div style={{ display: 'flex', gap: '3rem', marginBottom: '3rem', flexWrap: 'wrap', borderBottom: '1px solid var(--color-border)', paddingBottom: '2rem' }}>
             <div style={{ minWidth: '150px' }}>
               <h4 style={{ fontSize: '0.8rem', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '1rem', color: 'var(--color-accent)' }}>Category</h4>
               <ul style={{ listStyle: 'none', padding: 0, margin: 0, fontSize: '0.9rem', opacity: 0.8, lineHeight: 2 }}>
-                <li><label><input type="checkbox" style={{ marginRight: '0.5rem' }}/> All</label></li>
-                <li><label><input type="checkbox" style={{ marginRight: '0.5rem' }}/> Coats</label></li>
-                <li><label><input type="checkbox" style={{ marginRight: '0.5rem' }}/> Sarees</label></li>
+                <li><label style={{ cursor: 'pointer' }}><input type="checkbox" style={{ marginRight: '0.5rem' }}/> Kashmir Coats</label></li>
+                <li><label style={{ cursor: 'pointer' }}><input type="checkbox" style={{ marginRight: '0.5rem' }}/> Sarees</label></li>
+                <li><label style={{ cursor: 'pointer' }}><input type="checkbox" style={{ marginRight: '0.5rem' }}/> Home Decor</label></li>
               </ul>
             </div>
             <div style={{ minWidth: '150px' }}>
               <h4 style={{ fontSize: '0.8rem', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '1rem', color: 'var(--color-accent)' }}>Availability</h4>
               <ul style={{ listStyle: 'none', padding: 0, margin: 0, fontSize: '0.9rem', opacity: 0.8, lineHeight: 2 }}>
-                <li><label><input type="checkbox" style={{ marginRight: '0.5rem' }}/> In Stock</label></li>
-                <li><label><input type="checkbox" style={{ marginRight: '0.5rem' }}/> Ready to Ship</label></li>
-                <li><label><input type="checkbox" style={{ marginRight: '0.5rem' }}/> Made to Order</label></li>
+                <li><label style={{ cursor: 'pointer' }}><input type="checkbox" style={{ marginRight: '0.5rem' }}/> Ready to Ship</label></li>
+                <li><label style={{ cursor: 'pointer' }}><input type="checkbox" style={{ marginRight: '0.5rem' }}/> Made to Order</label></li>
+              </ul>
+            </div>
+            <div style={{ minWidth: '150px' }}>
+              <h4 style={{ fontSize: '0.8rem', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '1rem', color: 'var(--color-accent)' }}>GI Status</h4>
+              <ul style={{ listStyle: 'none', padding: 0, margin: 0, fontSize: '0.9rem', opacity: 0.8, lineHeight: 2 }}>
+                <li><label style={{ cursor: 'pointer' }}><input type="checkbox" style={{ marginRight: '0.5rem' }}/> Verified GI Heritage</label></li>
+                <li><label style={{ cursor: 'pointer' }}><input type="checkbox" style={{ marginRight: '0.5rem' }}/> Regionally Recognized</label></li>
               </ul>
             </div>
           </div>
         )}
         
         {loading ? (
-          <div style={{ textAlign: 'center', padding: '4rem 0', opacity: 0.5 }}>Loading collection...</div>
-        ) : categoryProducts.length === 0 ? (
+          <div style={{ textAlign: 'center', padding: '4rem 0', opacity: 0.5 }}>Curating pieces...</div>
+        ) : sortedProducts.length === 0 ? (
           <div style={{ textAlign: 'center', padding: '8rem 0' }}>
             <p style={{ fontSize: '1.2rem', fontFamily: 'var(--font-serif)', marginBottom: '1rem' }}>This collection is being curated.</p>
             <p style={{ opacity: 0.7, marginBottom: '2rem' }}>Please check back soon for our next artisan drop.</p>
@@ -130,43 +147,77 @@ export default function CategoryListing() {
           </div>
         ) : (
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))', gap: '3rem 2rem' }}>
-            {categoryProducts.map((product, idx) => {
-              // Simulate out of stock for specific id or randomly
-              const isOutOfStock = product.id === '3'; // Hardcoded simulation
-              const isReadyToShip = idx % 2 === 0;
+            {sortedProducts.map((product) => {
+              const mainImg = product.images && product.images.length > 0 ? product.images[0] : '/images/placeholder.png';
+              const hoverImg = product.hoverImage || (product.images && product.images.length > 1 ? product.images[1] : mainImg);
 
               return (
-                <div key={product.id} style={{ position: 'relative', display: 'flex', flexDirection: 'column' }}>
-                  <Link href={`/products/${product.slug}`} style={{ display: 'block', textDecoration: 'none', color: 'inherit', position: 'relative', overflow: 'hidden', group: 'productCard' }}>
-                    <div style={{ position: 'relative', aspectRatio: '3/4', borderRadius: '4px', overflow: 'hidden', backgroundColor: 'var(--color-surface)', marginBottom: '1rem' }}>
-                      {/* Badges */}
-                      <div style={{ position: 'absolute', top: '1rem', left: '1rem', zIndex: 10, display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-                        {isOutOfStock && <span style={{ background: '#000', color: '#fff', fontSize: '0.7rem', padding: '0.2rem 0.6rem', textTransform: 'uppercase', letterSpacing: '0.1em', border: '1px solid #fff' }}>Archive</span>}
-                        {!isOutOfStock && isReadyToShip && <span style={{ background: 'var(--color-accent)', color: '#000', fontSize: '0.7rem', padding: '0.2rem 0.6rem', textTransform: 'uppercase', letterSpacing: '0.1em' }}>Ready to Ship</span>}
-                      </div>
+                <div key={product.id} className="product-card-container" style={{ position: 'relative', display: 'flex', flexDirection: 'column' }}>
+                  <div style={{ position: 'relative', overflow: 'hidden' }}>
+                    <Link href={\`/products/\${product.slug}\`} style={{ display: 'block', textDecoration: 'none', color: 'inherit' }}>
+                      <div className="img-wrapper" style={{ position: 'relative', aspectRatio: '3/4', borderRadius: '4px', overflow: 'hidden', backgroundColor: 'var(--color-surface)', marginBottom: '1rem' }}>
+                        
+                        {/* Badges */}
+                        <div style={{ position: 'absolute', top: '1rem', left: '1rem', zIndex: 10, display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+                          {product.giStatus && product.giStatus !== 'Not Applicable' && (
+                            <span style={{ background: '#000', color: '#fff', fontSize: '0.65rem', padding: '0.2rem 0.6rem', textTransform: 'uppercase', letterSpacing: '0.1em', border: '1px solid #333' }}>
+                              {product.giStatus}
+                            </span>
+                          )}
+                          {product.dispatchType && (
+                            <span style={{ background: 'var(--color-accent)', color: '#000', fontSize: '0.65rem', padding: '0.2rem 0.6rem', textTransform: 'uppercase', letterSpacing: '0.1em' }}>
+                              {product.dispatchType}
+                            </span>
+                          )}
+                        </div>
 
-                      {/* Image */}
-                      <Image 
-                        src={product.images && product.images.length > 0 ? product.images[0] : '/images/placeholder.png'} 
-                        alt={product.title} 
-                        fill 
-                        style={{ objectFit: 'cover', transition: 'transform 0.5s ease', opacity: isOutOfStock ? 0.6 : 1 }} 
-                        className="hoverZoom"
-                      />
-                    </div>
-                    
-                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
-                      <div>
-                        <h3 style={{ fontSize: '1.2rem', marginBottom: '0.2rem', fontFamily: 'var(--font-serif)' }}>{product.title}</h3>
-                        <p style={{ fontSize: '0.8rem', color: 'rgba(252, 250, 248, 0.6)', marginBottom: '0.5rem' }}>Indian Craft</p>
+                        {/* Images with crossfade hover */}
+                        <Image src={mainImg} alt={product.title} fill style={{ objectFit: 'cover' }} className="img-main" />
+                        {hoverImg && (
+                          <Image src={hoverImg} alt={\`\${product.title} Alternate\`} fill style={{ objectFit: 'cover' }} className="img-hover" />
+                        )}
                       </div>
-                      <div style={{ textAlign: 'right' }}>
-                        <p style={{ color: isOutOfStock ? 'rgba(252, 250, 248, 0.5)' : 'var(--color-foreground)', fontSize: '1.1rem' }}>
-                          {isOutOfStock ? 'Currently Unavailable' : formatPrice(product.price, currency)}
-                        </p>
-                      </div>
+                    </Link>
+
+                    {/* Quick View Button Overlay */}
+                    <button 
+                      className="quick-view-btn"
+                      onClick={(e) => { e.preventDefault(); setQuickViewProduct(product); }}
+                      style={{
+                        position: 'absolute',
+                        bottom: '2rem',
+                        left: '50%',
+                        transform: 'translateX(-50%)',
+                        background: 'var(--color-surface)',
+                        color: 'var(--color-foreground)',
+                        border: '1px solid var(--color-border)',
+                        padding: '0.8rem 2rem',
+                        textTransform: 'uppercase',
+                        letterSpacing: '0.1em',
+                        fontSize: '0.8rem',
+                        cursor: 'pointer',
+                        opacity: 0,
+                        transition: 'opacity 0.3s ease',
+                        zIndex: 20
+                      }}
+                    >
+                      Quick View
+                    </button>
+                  </div>
+                  
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+                    <div>
+                      <h3 style={{ fontSize: '1.1rem', marginBottom: '0.2rem', fontFamily: 'var(--font-serif)', lineHeight: 1.3 }}>{product.title}</h3>
+                      <p style={{ fontSize: '0.8rem', color: 'rgba(252, 250, 248, 0.6)', marginBottom: '0.5rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+                        {product.subtitle || 'Indian Craft'}
+                      </p>
                     </div>
-                  </Link>
+                    <div style={{ textAlign: 'right' }}>
+                      <p style={{ color: 'var(--color-foreground)', fontSize: '1.1rem' }}>
+                        {formatPrice(product.price, currency)}
+                      </p>
+                    </div>
+                  </div>
                 </div>
               );
             })}
@@ -174,10 +225,16 @@ export default function CategoryListing() {
         )}
       </div>
 
-      {/* Global CSS adjustments for hover zoom */}
-      <style dangerouslySetInnerHTML={{__html: `
-        .hoverZoom:hover { transform: scale(1.05); }
-      `}} />
+      {quickViewProduct && (
+        <QuickViewModal product={quickViewProduct} onClose={() => setQuickViewProduct(null)} />
+      )}
+
+      {/* Global CSS adjustments */}
+      <style dangerouslySetInnerHTML={{__html: \`
+        .product-card-container .img-hover { opacity: 0; transition: opacity 0.5s ease; }
+        .product-card-container:hover .img-hover { opacity: 1; }
+        .product-card-container:hover .quick-view-btn { opacity: 1 !important; }
+      \`}} />
 
       <Footer />
     </main>
