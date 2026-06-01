@@ -56,8 +56,8 @@ export default function CareJourney() {
         </div>
 
         <div className={styles.footer}>
-          <Link href="/packaging-safe-arrival" className={styles.button}>
-            See The Full Journey
+          <Link href="/care-journey" className={styles.button}>
+            Explore Our Care Philosophy
           </Link>
         </div>
 

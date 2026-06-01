@@ -51,7 +51,7 @@ export default function Header() {
             </div>
             <Link href="/artisans">Artisans</Link>
             <Link href="/our-story">Our Story</Link>
-            <Link href="/packaging-safe-arrival">Care Journey</Link>
+            <Link href="/care-journey">Care Journey</Link>
           </div>
 
           <div className={styles.logoCenter}>
@@ -111,7 +111,7 @@ export default function Header() {
           <Link href="/collections/accessories" className={styles.mobileSubLink} onClick={() => setMobileMenuOpen(false)}>Artisan Accessories</Link>
           <Link href="/artisans" onClick={() => setMobileMenuOpen(false)}>Artisans</Link>
           <Link href="/our-story" onClick={() => setMobileMenuOpen(false)}>Our Story</Link>
-          <Link href="/packaging-safe-arrival" onClick={() => setMobileMenuOpen(false)}>Care Journey</Link>
+          <Link href="/care-journey" onClick={() => setMobileMenuOpen(false)}>Care Journey</Link>
         </nav>
       </div>
       
