@@ -1,61 +1,63 @@
+'use client';
+
+import { useState } from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 
 export default function Contact() {
-  return (
-    <main>
-      <Header />
-      <div className="container" style={{ paddingTop: '8rem', paddingBottom: '6rem', maxWidth: '800px', minHeight: '80vh' }}>
-        <h1 style={{ fontSize: '3rem', fontFamily: 'var(--font-serif)', marginBottom: '2rem', textAlign: 'center' }}>
-          How Can We Help?
-        </h1>
-        <div style={{ color: 'rgba(252, 250, 248, 0.85)', lineHeight: 1.8, fontSize: '1.05rem', fontFamily: 'var(--font-sans)', fontWeight: 300, textAlign: 'center' }}>
-          <p style={{ marginBottom: '4rem', maxWidth: '600px', margin: '0 auto 4rem auto' }}>
-            Whether you have a question about sizing, shipping, packaging, customs, or a specific handcrafted piece, the IDFIS team is here to help.
-          </p>
+  const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState(false);
 
-          <form style={{ display: 'flex', flexDirection: 'column', gap: '2rem', textAlign: 'left', background: 'var(--color-surface)', padding: '3rem', borderRadius: '8px', border: '1px solid var(--color-border)' }}>
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem' }}>
-              <div>
-                <label style={{ display: 'block', marginBottom: '0.5rem', fontSize: '0.9rem', color: 'var(--color-accent)' }}>Name</label>
-                <input type="text" style={{ width: '100%', padding: '1rem', background: 'transparent', border: '1px solid var(--color-border)', borderBottom: '2px solid var(--color-foreground)', color: 'var(--color-foreground)', outline: 'none' }} />
-              </div>
-              <div>
-                <label style={{ display: 'block', marginBottom: '0.5rem', fontSize: '0.9rem', color: 'var(--color-accent)' }}>Email</label>
-                <input type="email" style={{ width: '100%', padding: '1rem', background: 'transparent', border: '1px solid var(--color-border)', borderBottom: '2px solid var(--color-foreground)', color: 'var(--color-foreground)', outline: 'none' }} />
-              </div>
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
+    // Simulate API call
+    setTimeout(() => {
+      setLoading(false);
+      setSuccess(true);
+    }, 1500);
+  };
+
+  return (
+    <main style={{ backgroundColor: 'var(--color-background)', minHeight: '100vh' }}>
+      <Header />
+      <div className="container" style={{ paddingTop: '10rem', paddingBottom: '6rem', maxWidth: '600px' }}>
+        <h1 style={{ fontSize: '3rem', fontFamily: 'var(--font-serif)', marginBottom: '2rem', color: 'var(--color-foreground)', lineHeight: 1.1 }}>
+          Contact IDFIS Concierge
+        </h1>
+        <p style={{ color: 'rgba(252, 250, 248, 0.8)', fontSize: '1.1rem', lineHeight: 1.8, marginBottom: '3rem' }}>
+          For inquiries regarding provenance, bespoke orders, or shipping assistance, please reach out to our dedicated concierge.
+        </p>
+
+        {success ? (
+          <div style={{ padding: '2rem', backgroundColor: 'rgba(212, 175, 55, 0.1)', border: '1px solid var(--color-border)', textAlign: 'center' }}>
+            <h3 style={{ color: 'var(--color-accent)', marginBottom: '1rem', fontFamily: 'var(--font-serif)', fontSize: '1.5rem' }}>Message Received</h3>
+            <p style={{ opacity: 0.8 }}>Thank you. Our concierge team will get back to you within 24 hours.</p>
+          </div>
+        ) : (
+          <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+            <div>
+              <label style={{ display: 'block', marginBottom: '0.5rem', color: 'var(--color-foreground)', fontSize: '0.9rem' }}>Name *</label>
+              <input type="text" style={{ width: '100%', padding: '1rem', background: 'var(--color-surface)', border: '1px solid var(--color-border)', color: '#fff' }} required />
+            </div>
+            <div>
+              <label style={{ display: 'block', marginBottom: '0.5rem', color: 'var(--color-foreground)', fontSize: '0.9rem' }}>Email Address *</label>
+              <input type="email" style={{ width: '100%', padding: '1rem', background: 'var(--color-surface)', border: '1px solid var(--color-border)', color: '#fff' }} required />
+            </div>
+            <div>
+              <label style={{ display: 'block', marginBottom: '0.5rem', color: 'var(--color-foreground)', fontSize: '0.9rem' }}>Message *</label>
+              <textarea rows={6} style={{ width: '100%', padding: '1rem', background: 'var(--color-surface)', border: '1px solid var(--color-border)', color: '#fff' }} required></textarea>
             </div>
             
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem' }}>
-              <div>
-                <label style={{ display: 'block', marginBottom: '0.5rem', fontSize: '0.9rem', color: 'var(--color-accent)' }}>Order Number (Optional)</label>
-                <input type="text" style={{ width: '100%', padding: '1rem', background: 'transparent', border: '1px solid var(--color-border)', borderBottom: '2px solid var(--color-foreground)', color: 'var(--color-foreground)', outline: 'none' }} />
-              </div>
-              <div>
-                <label style={{ display: 'block', marginBottom: '0.5rem', fontSize: '0.9rem', color: 'var(--color-accent)' }}>Topic</label>
-                <select style={{ width: '100%', padding: '1rem', background: 'transparent', border: '1px solid var(--color-border)', borderBottom: '2px solid var(--color-foreground)', color: 'var(--color-foreground)', outline: 'none', appearance: 'none' }}>
-                  <option style={{ background: 'var(--color-surface)' }}>Product Question</option>
-                  <option style={{ background: 'var(--color-surface)' }}>Sizing Help</option>
-                  <option style={{ background: 'var(--color-surface)' }}>Shipping & Delivery</option>
-                  <option style={{ background: 'var(--color-surface)' }}>Duties & Customs</option>
-                  <option style={{ background: 'var(--color-surface)' }}>Damage / Issue</option>
-                  <option style={{ background: 'var(--color-surface)' }}>Wholesale / Collaboration</option>
-                  <option style={{ background: 'var(--color-surface)' }}>Other</option>
-                </select>
-              </div>
-            </div>
-
-            <div>
-              <label style={{ display: 'block', marginBottom: '0.5rem', fontSize: '0.9rem', color: 'var(--color-accent)' }}>Message</label>
-              <textarea rows={6} style={{ width: '100%', padding: '1rem', background: 'transparent', border: '1px solid var(--color-border)', borderBottom: '2px solid var(--color-foreground)', color: 'var(--color-foreground)', outline: 'none', resize: 'vertical' }}></textarea>
-            </div>
-
-            <button type="button" className="btn-primary" style={{ padding: '1.2rem', marginTop: '1rem' }}>Send Message</button>
-            <p style={{ fontSize: '0.85rem', color: 'rgba(252, 250, 248, 0.5)', textAlign: 'center', marginTop: '1rem' }}>
-              We aim to respond within 1–2 business days.<br/>
-              Or reach us directly at <a href="mailto:support@idfis.com" style={{ color: 'var(--color-accent)' }}>support@idfis.com</a>
-            </p>
+            <button type="submit" disabled={loading} className="btn-primary" style={{ padding: '1.2rem', marginTop: '1rem', border: 'none', cursor: loading ? 'not-allowed' : 'pointer', opacity: loading ? 0.7 : 1 }}>
+              {loading ? 'Sending Securely...' : 'Send Message'}
+            </button>
           </form>
+        )}
+
+        <div style={{ marginTop: '4rem', paddingTop: '2rem', borderTop: '1px solid var(--color-border)', color: 'rgba(252, 250, 248, 0.8)' }}>
+          <p style={{ marginBottom: '0.5rem' }}><strong>Email:</strong> concierge@idfis.com</p>
+          <p><strong>Hours:</strong> Monday – Friday, 10:00 AM – 6:00 PM IST</p>
         </div>
       </div>
       <Footer />

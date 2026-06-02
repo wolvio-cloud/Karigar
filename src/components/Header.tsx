@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { usePathname } from 'next/navigation';
 import { useSession } from 'next-auth/react';
 import { useCart } from '@/context/CartContext';
 import { useCurrency } from '@/context/CurrencyContext';
@@ -10,6 +11,7 @@ import styles from './Header.module.css';
 import SearchDrawer from './SearchDrawer';
 
 export default function Header() {
+  const pathname = usePathname();
   const { data: session, status } = useSession();
   const [scrolled, setScrolled] = useState(false);
   const { itemCount } = useCart();
@@ -25,9 +27,11 @@ export default function Header() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const headerClass = `${styles.header} ${scrolled ? styles.scrolled : ''}`;
+
   return (
     <>
-      <header className={`${styles.header} ${scrolled ? styles.scrolled : ''}`}>
+      <header className={headerClass}>
         <div className={styles.topBar}>
           
           <div className={styles.mobileLeft}>
@@ -41,11 +45,12 @@ export default function Header() {
             <div className={styles.dropdownParent}>
               <Link href="/collections/all">Collections</Link>
               <div className={styles.dropdownMenu}>
-                <Link href="/collections/kashmir-coats">Kashmir Coats</Link>
-                <Link href="/collections/sarees">Heritage Sarees</Link>
-                <Link href="/collections/kurtas">Silk Kurtas</Link>
-                <Link href="/collections/accessories">Artisan Accessories</Link>
-                <Link href="/collections/gifts">Gifts</Link>
+                <Link href="/collections/kashmir-pashmina-sozni-heirlooms">Kashmir Pashmina & Sozni</Link>
+                <Link href="/collections/kanchipuram-silk-heirlooms">Kanchipuram Silk</Link>
+                <Link href="/collections/ajrakh-block-print-stories">Ajrakh Block Prints</Link>
+                <Link href="/collections/tanjore-heirloom-paintings" className={styles.subLink}>Tanjore Heirloom Paintings</Link>
+                <Link href="/collections/accessories" className={styles.subLink}>Artisan Accessories</Link>
+                <Link href="/collections/home-decor" className={styles.subLink}>Home & Decor</Link>
                 <Link href="/collections/limited-editions">Limited Editions</Link>
               </div>
             </div>
@@ -57,7 +62,7 @@ export default function Header() {
           <div className={styles.logoCenter}>
             <Link href="/">
               <Image 
-                src="/images/idfis-transparent.svg" 
+                src="/images/idfis-transparent.svg?v=2" 
                 alt="IDFIS" 
                 width={scrolled ? 180 : 280} 
                 height={scrolled ? 60 : 90} 
@@ -105,10 +110,12 @@ export default function Header() {
         <nav className={styles.mobileNav}>
           <Link href="/collections/all" onClick={() => setMobileMenuOpen(false)}>New Arrivals</Link>
           <div className={styles.mobileNavCategory}>Collections</div>
-          <Link href="/collections/kashmir-coats" className={styles.mobileSubLink} onClick={() => setMobileMenuOpen(false)}>Kashmir Coats</Link>
-          <Link href="/collections/sarees" className={styles.mobileSubLink} onClick={() => setMobileMenuOpen(false)}>Heritage Sarees</Link>
-          <Link href="/collections/kurtas" className={styles.mobileSubLink} onClick={() => setMobileMenuOpen(false)}>Silk Kurtas</Link>
+          <Link href="/collections/kashmir-pashmina-sozni-heirlooms" className={styles.mobileSubLink} onClick={() => setMobileMenuOpen(false)}>Kashmir Pashmina & Sozni</Link>
+          <Link href="/collections/kanchipuram-silk-heirlooms" className={styles.mobileSubLink} onClick={() => setMobileMenuOpen(false)}>Kanchipuram Silk</Link>
+          <Link href="/collections/ajrakh-block-print-stories" className={styles.mobileSubLink} onClick={() => setMobileMenuOpen(false)}>Ajrakh Block Prints</Link>
+          <Link href="/collections/tanjore-heirloom-paintings" className={styles.mobileSubLink} onClick={() => setMobileMenuOpen(false)}>Tanjore Heirloom Paintings</Link>
           <Link href="/collections/accessories" className={styles.mobileSubLink} onClick={() => setMobileMenuOpen(false)}>Artisan Accessories</Link>
+          <Link href="/collections/home-decor" className={styles.mobileSubLink} onClick={() => setMobileMenuOpen(false)}>Home & Decor</Link>
           <Link href="/artisans" onClick={() => setMobileMenuOpen(false)}>Artisans</Link>
           <Link href="/our-story" onClick={() => setMobileMenuOpen(false)}>Our Story</Link>
           <Link href="/care-journey" onClick={() => setMobileMenuOpen(false)}>Care Journey</Link>

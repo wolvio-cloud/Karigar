@@ -104,6 +104,7 @@ model Product {
   tags              String?
   seoTitle          String?
   seoDescription    String?
+  metafields        String?
   
   variants          ProductVariant[]
   orderItems        OrderItem[]

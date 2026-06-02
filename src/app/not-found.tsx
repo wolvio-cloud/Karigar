@@ -4,25 +4,23 @@ import Footer from '@/components/Footer';
 
 export default function NotFound() {
   return (
-    <main>
+    <>
       <Header />
-      <div className="container" style={{ paddingTop: '12rem', paddingBottom: '12rem', maxWidth: '600px', minHeight: '80vh', textAlign: 'center' }}>
-        <h1 style={{ fontSize: '3.5rem', fontFamily: 'var(--font-serif)', marginBottom: '2rem' }}>
-          This Piece Couldn't Be Found
-        </h1>
-        <p style={{ color: 'rgba(252, 250, 248, 0.7)', lineHeight: 1.8, fontSize: '1.1rem', fontFamily: 'var(--font-sans)', marginBottom: '4rem' }}>
-          The page you’re looking for may have moved, sold out, or returned to the artisan archive.
+      <main style={{ minHeight: '70vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', backgroundColor: 'var(--color-background)', color: 'var(--color-text)', textAlign: 'center', padding: '2rem' }}>
+        <h1 style={{ fontFamily: 'var(--font-serif)', fontSize: '2.5rem', color: 'var(--color-accent)', marginBottom: '1rem' }}>Piece Not Found.</h1>
+        <p style={{ maxWidth: '500px', margin: '0 auto 2rem auto', opacity: 0.8, lineHeight: 1.6 }}>
+          This page or piece may no longer be available in our collection.
         </p>
-        <div style={{ display: 'flex', gap: '1.5rem', justifyContent: 'center' }}>
-          <Link href="/collections/all" className="btn-primary" style={{ padding: '1rem 2rem' }}>
-            Explore New Arrivals
+        <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center' }}>
+          <Link href="/collections/all" className="btn-primary" style={{ padding: '0.8rem 2rem', textDecoration: 'none', display: 'inline-block' }}>
+            Explore Collections
           </Link>
-          <Link href="/" style={{ padding: '1rem 2rem', border: '1px solid var(--color-border)', color: 'var(--color-foreground)', textDecoration: 'none' }}>
-            Return Home
+          <Link href="/contact" className="btn-secondary" style={{ padding: '0.8rem 2rem', textDecoration: 'none', display: 'inline-block', border: '1px solid rgba(212, 175, 55, 0.3)', color: 'var(--color-foreground)' }}>
+            Contact Support
           </Link>
         </div>
-      </div>
+      </main>
       <Footer />
-    </main>
+    </>
   );
 }

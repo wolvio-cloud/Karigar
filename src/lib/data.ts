@@ -29,7 +29,7 @@ export const products: Product[] = [
     category: 'Kashmir Coats',
     categorySlug: 'kashmir-coats',
     basePriceINR: 85000, // ~ $1020
-    description: 'Luxurious pure pashmina coat featuring exquisite sozni embroidery. A timeless winter heirloom that passes down generations.',
+    description: 'Luxurious fine pashmina coat featuring exquisite sozni embroidery. A timeless winter heirloom that passes down generations.',
     image: '/images/coat.png',
     sizes: ['S', 'M', 'L', 'XL']
   },

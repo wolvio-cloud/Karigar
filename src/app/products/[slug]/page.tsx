@@ -9,7 +9,7 @@ import { useCurrency } from '@/context/CurrencyContext';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { useState, useEffect } from 'react';
-
+import TanjoreProductTemplate from './TanjoreProductTemplate';
 export default function ProductDetail() {
   const params = useParams();
   const slug = params.slug as string;
@@ -50,16 +50,39 @@ export default function ProductDetail() {
       })
       .catch(err => {
         console.error(err);
+        setProduct(null);
         setLoading(false);
       });
   }, [slug]);
 
   if (loading) {
-    return <main><Header /><div className="container" style={{ paddingTop: '10rem', textAlign: 'center', minHeight: '80vh' }}>Loading luxury piece...</div><Footer /></main>;
+    return (
+      <>
+        <Header />
+        <main style={{ minHeight: '70vh', display: 'flex', alignItems: 'center', justifyContent: 'center', backgroundColor: 'var(--color-background)' }}>
+          <p style={{ fontFamily: 'var(--font-serif)', color: 'var(--color-accent)' }}>Preparing this piece...</p>
+        </main>
+        <Footer />
+      </>
+    );
   }
 
   if (!product) {
-    return <main><Header /><div className="container" style={{ paddingTop: '10rem', textAlign: 'center', minHeight: '80vh' }}>Piece not found in the archive</div><Footer /></main>;
+    return (
+      <>
+        <Header />
+        <main style={{ minHeight: '70vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', backgroundColor: 'var(--color-background)', textAlign: 'center', padding: '2rem' }}>
+          <h1 style={{ fontFamily: 'var(--font-serif)', fontSize: '2.5rem', color: 'var(--color-accent)', marginBottom: '1rem' }}>This piece is currently unavailable.</h1>
+          <p style={{ opacity: 0.7, maxWidth: '500px', margin: '0 auto 2rem auto' }}>The item you are looking for may have been archived or the link might be incorrect.</p>
+          <Link href="/collections/all" className="btn-primary" style={{ display: 'inline-block', padding: '0.8rem 2rem', textDecoration: 'none' }}>Return to Collections</Link>
+        </main>
+        <Footer />
+      </>
+    );
+  }
+
+  if (product.category?.slug === 'tanjore-heirloom-paintings') {
+    return <TanjoreProductTemplate product={product} />;
   }
 
   const toggleAccordion = (title: string) => {
@@ -207,7 +230,28 @@ export default function ProductDetail() {
                 Add to Cart
               </button>
               
-              <button className="btn-secondary" style={{ width: '100%', padding: '1.2rem', fontSize: '1rem', marginBottom: '2rem', border: '1px solid var(--color-border)' }}>
+              <button 
+                className="btn-primary" 
+                style={{ width: '100%', padding: '1.2rem', fontSize: '1rem', marginBottom: '1rem', backgroundColor: 'transparent', color: 'var(--color-accent)', border: '1px solid var(--color-accent)' }}
+                onClick={() => {
+                  addToCart({
+                    id: product.id,
+                    name: product.title,
+                    slug: product.slug,
+                    basePriceINR: product.price,
+                    image: images[0],
+                    category: product.category?.name || 'Collection',
+                    categorySlug: product.category?.slug || '',
+                    sizes: Object.values(selectedVariants),
+                    description: product.description
+                  }, selectedVariants['Size'] || 'Standard', 1);
+                  window.location.href = '/checkout';
+                }}
+              >
+                Buy Now
+              </button>
+              
+              <button className="btn-secondary" style={{ width: '100%', padding: '1.2rem', fontSize: '1rem', marginBottom: '2rem', border: '1px solid var(--color-border)', color: 'rgba(252,250,248,0.7)', background: 'transparent' }}>
                 ♡ Save this piece
               </button>
               

@@ -147,10 +147,10 @@ export default function CategoryListing() {
         {loading ? (
           <div style={{ textAlign: 'center', padding: '4rem 0', opacity: 0.5 }}>Curating pieces...</div>
         ) : sortedProducts.length === 0 ? (
-          <div style={{ textAlign: 'center', padding: '8rem 0' }}>
-            <p style={{ fontSize: '1.2rem', fontFamily: 'var(--font-serif)', marginBottom: '1rem' }}>This collection is being curated.</p>
-            <p style={{ opacity: 0.7, marginBottom: '2rem' }}>Please check back soon for our next artisan drop.</p>
-            <Link href="/collections/all" className="btn-secondary" style={{ padding: '1rem 2rem', textDecoration: 'none', border: '1px solid var(--color-border)' }}>Explore All Pieces</Link>
+          <div style={{ gridColumn: '1 / -1', padding: '4rem 2rem', textAlign: 'center', backgroundColor: 'rgba(255,255,255,0.02)', borderRadius: '8px' }}>
+            <h3 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.5rem', color: 'var(--color-accent)', marginBottom: '1rem' }}>This collection is being curated.</h3>
+            <p style={{ opacity: 0.7, maxWidth: '500px', margin: '0 auto' }}>We are currently sourcing exceptional pieces for this category. Please check back soon or explore our other collections.</p>
+            <Link href="/collections/all" style={{ display: 'inline-block', marginTop: '2rem', padding: '0.8rem 2rem', textDecoration: 'none', border: '1px solid var(--color-border)', color: 'var(--color-foreground)' }}>Explore All</Link>
           </div>
         ) : (
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))', gap: '3rem 2rem' }}>

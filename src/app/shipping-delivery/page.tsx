@@ -1,62 +1,46 @@
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import Link from 'next/link';
 
 export default function ShippingDelivery() {
   return (
-    <main>
+    <main style={{ backgroundColor: 'var(--color-background)', minHeight: '100vh' }}>
       <Header />
-      <div className="container" style={{ paddingTop: '8rem', paddingBottom: '6rem', maxWidth: '800px', minHeight: '80vh' }}>
-        <h1 style={{ fontSize: '3rem', fontFamily: 'var(--font-serif)', marginBottom: '2rem', textAlign: 'center' }}>
-          Transparent Global Shipping
+      <div className="container" style={{ paddingTop: '10rem', paddingBottom: '6rem', maxWidth: '800px' }}>
+        <h1 style={{ fontSize: '3.5rem', fontFamily: 'var(--font-serif)', marginBottom: '3rem', color: 'var(--color-foreground)', lineHeight: 1.1 }}>
+          Shipping & Delivery
         </h1>
-        <div style={{ color: 'rgba(252, 250, 248, 0.85)', lineHeight: 1.8, fontSize: '1.05rem', fontFamily: 'var(--font-sans)', fontWeight: 300 }}>
+
+        <div style={{ color: 'rgba(252, 250, 248, 0.8)', fontSize: '1.1rem', lineHeight: 1.8 }}>
           <p style={{ marginBottom: '2rem' }}>
-            At IDFIS, we believe international shipping should be clear, honest, and easy to understand. Your shipping cost is calculated based on your delivery country, product weight, package size, courier availability, and the protective packaging required for your order.
-          </p>
-          <p style={{ marginBottom: '3rem' }}>
-            We do not hide logistics costs inside inflated product prices. Instead, we show shipping transparently at checkout wherever possible.
+            IDFIS curates and ships authentic Indian heirlooms globally. We partner with premium logistics providers to ensure that your carefully chosen pieces arrive safely, securely, and within the expected timeframe.
           </p>
 
-          <h2 style={{ fontSize: '1.5rem', color: 'var(--color-accent)', marginBottom: '1rem', marginTop: '2rem', textTransform: 'uppercase', letterSpacing: '0.1em' }}>Where We Ship</h2>
-          <p style={{ marginBottom: '2rem' }}>
-            We ship from India to selected international destinations, including India, the United States, United Kingdom, Europe, Canada, Australia, UAE, Singapore, and other supported regions.
+          <h2 style={{ fontSize: '2rem', fontFamily: 'var(--font-serif)', color: 'var(--color-accent)', marginTop: '4rem', marginBottom: '1.5rem' }}>Global Dispatch</h2>
+          <p style={{ marginBottom: '1.5rem' }}>
+            We ship to most major international destinations directly from our curation hubs in India. Every shipment is fully tracked from the moment it leaves our facility to the moment it reaches your door.
           </p>
-
-          <h2 style={{ fontSize: '1.5rem', color: 'var(--color-accent)', marginBottom: '1rem', marginTop: '2rem', textTransform: 'uppercase', letterSpacing: '0.1em' }}>How Shipping Is Calculated</h2>
-          <p style={{ marginBottom: '1rem' }}>Shipping may depend on:</p>
-          <ul style={{ marginBottom: '2rem', paddingLeft: '1.5rem', listStyleType: 'square' }}>
-            <li>Destination country</li>
-            <li>Product weight</li>
-            <li>Package dimensions</li>
-            <li>Courier service</li>
-            <li>Fragile or premium packaging requirements</li>
-            <li>Customs handling and export documentation</li>
+          <ul style={{ paddingLeft: '1.5rem', marginBottom: '1.5rem' }}>
+            <li style={{ marginBottom: '0.5rem' }}><strong>Ready to Ship:</strong> Dispatched within 2-4 business days.</li>
+            <li style={{ marginBottom: '0.5rem' }}><strong>Made to Order:</strong> Crafting timelines vary by piece and are clearly stated on the product page (typically 4-8 weeks).</li>
           </ul>
 
-          <h2 style={{ fontSize: '1.5rem', color: 'var(--color-accent)', marginBottom: '1rem', marginTop: '2rem', textTransform: 'uppercase', letterSpacing: '0.1em' }}>Tracking</h2>
-          <p style={{ marginBottom: '2rem' }}>
-            Once your order is dispatched, you will receive a tracking link by email. We provide quality-checked, securely packed, and dispatched with tracking within 48 hours for eligible ready-to-ship orders.
+          <h2 style={{ fontSize: '2rem', fontFamily: 'var(--font-serif)', color: 'var(--color-accent)', marginTop: '4rem', marginBottom: '1.5rem' }}>Taxes & Customs Duties</h2>
+          <p style={{ marginBottom: '1.5rem' }}>
+            Please note that international shipments may be subject to import taxes, customs duties, and fees levied by the destination country. <strong>These charges are the buyer's responsibility</strong> and are not included in the item price or shipping cost. We recommend checking your local customs policies before placing an order.
           </p>
 
-          <h2 style={{ fontSize: '1.5rem', color: 'var(--color-accent)', marginBottom: '1rem', marginTop: '2rem', textTransform: 'uppercase', letterSpacing: '0.1em' }}>Duties, VAT & Import Taxes</h2>
-          <p style={{ marginBottom: '2rem' }}>
-            Depending on your country, customs duties, VAT, import taxes, or courier handling charges may apply. Where supported, these may be shown at checkout. If not collected at checkout, your local customs authority or courier may request payment before delivery.
+          <h2 style={{ fontSize: '2rem', fontFamily: 'var(--font-serif)', color: 'var(--color-accent)', marginTop: '4rem', marginBottom: '1.5rem' }}>Transit Protection</h2>
+          <p style={{ marginBottom: '1.5rem' }}>
+            Every IDFIS order is packed with Elite Protective Packaging tailored to the specific medium—be it delicate silk, heavy brass, or fragile Tanjore glass. We insure all high-value shipments against total loss or severe damage in transit.
           </p>
 
-          <h2 style={{ fontSize: '1.5rem', color: 'var(--color-accent)', marginBottom: '1rem', marginTop: '2rem', textTransform: 'uppercase', letterSpacing: '0.1em' }}>Estimated Delivery After Dispatch</h2>
-          <ul style={{ marginBottom: '2rem', paddingLeft: '1.5rem', listStyleType: 'none', marginLeft: '-1.5rem' }}>
-            <li><strong>India:</strong> 3–7 business days</li>
-            <li><strong>United States:</strong> 7–14 business days</li>
-            <li><strong>United Kingdom:</strong> 6–12 business days</li>
-            <li><strong>Europe:</strong> 7–15 business days</li>
-            <li><strong>Canada/Australia:</strong> 8–18 business days</li>
-            <li><strong>UAE/Singapore:</strong> 5–10 business days</li>
-          </ul>
-
-          <div style={{ padding: '1.5rem', border: '1px solid var(--color-border)', backgroundColor: 'var(--color-surface)', borderRadius: '4px' }}>
-            <p style={{ margin: 0, fontSize: '0.9rem', fontStyle: 'italic' }}>
-              Note: International delivery timelines vary by destination, courier availability, and customs clearance. These are estimated timelines and may vary due to customs clearance, weather, holidays, or courier delays.
-            </p>
+          <div style={{ marginTop: '5rem', padding: '3rem', border: '1px solid var(--color-border)', backgroundColor: 'var(--color-surface)', textAlign: 'center' }}>
+            <h3 style={{ fontSize: '1.5rem', fontFamily: 'var(--font-serif)', color: 'var(--color-accent)', marginBottom: '1rem' }}>Need assistance with a delivery?</h3>
+            <p style={{ fontSize: '0.95rem', marginBottom: '2rem' }}>Contact our support team with your order number.</p>
+            <Link href="/contact" className="btn-primary" style={{ display: 'inline-block', padding: '1rem 2rem' }}>
+              Track / Support
+            </Link>
           </div>
         </div>
       </div>

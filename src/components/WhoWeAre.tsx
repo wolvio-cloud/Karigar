@@ -1,5 +1,6 @@
 import styles from './WhoWeAre.module.css';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function WhoWeAre() {
   return (
@@ -9,15 +10,15 @@ export default function WhoWeAre() {
         <div className={styles.collageWrapper}>
           <div className={styles.collageColumn}>
             <div className={`${styles.imageBox} ${styles.tall}`}>
-              <img src="/images/bento_saree.png" alt="Heritage Banarasi Saree" className={styles.image} />
+              <Image src="/images/bento_saree.png" alt="Heritage Banarasi Saree" width={500} height={700} style={{ width: '100%', height: '100%', objectFit: 'cover' }} className={styles.image} />
             </div>
           </div>
           <div className={`${styles.collageColumn} ${styles.offsetDown}`}>
             <div className={`${styles.imageBox} ${styles.short}`}>
-              <img src="/images/bento_kurta.png" alt="Silk Kurta Craft" className={styles.image} />
+              <Image src="/images/bento_kurta.png" alt="Silk Kurta Craft" width={400} height={400} style={{ width: '100%', height: '100%', objectFit: 'cover' }} className={styles.image} />
             </div>
             <div className={`${styles.imageBox} ${styles.square}`}>
-              <img src="/images/bento_accessories.png" alt="Artisan Brass Accessories" className={styles.image} />
+              <Image src="/images/bento_accessories.png" alt="Artisan Brass Accessories" width={400} height={400} style={{ width: '100%', height: '100%', objectFit: 'cover' }} className={styles.image} />
             </div>
           </div>
         </div>

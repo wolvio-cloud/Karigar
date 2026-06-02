@@ -10,7 +10,7 @@ export default function Footer() {
           <div className={styles.brandColumn}>
             <div className={styles.logo}>
               <Image 
-                src="/images/idfis-transparent.svg" 
+                src="/images/idfis-transparent.svg?v=2" 
                 alt="IDFIS" 
                 width={180} 
                 height={60} 
@@ -35,9 +35,11 @@ export default function Footer() {
               <h4>Shop</h4>
               <ul className={styles.navLinks}>
                 <li><Link href="/collections/all">New Arrivals</Link></li>
-                <li><Link href="/collections/kashmir-coats">Kashmir Coats</Link></li>
-                <li><Link href="/collections/sarees">Heritage Sarees</Link></li>
-                <li><Link href="/collections/kurtas">Silk Kurtas</Link></li>
+                <li><Link href="/collections/kashmir-pashmina-sozni-heirlooms">Kashmir Pashmina & Sozni</Link></li>
+                <li><Link href="/collections/kanchipuram-silk-heirlooms">Kanchipuram Silk</Link></li>
+                <li><Link href="/collections/ajrakh-block-print-stories">Ajrakh Block Prints</Link></li>
+                <li><Link href="/collections/tanjore-heirloom-paintings">Tanjore Heirloom Paintings</Link></li>
+                <li><Link href="/collections/home-decor">Home & Decor</Link></li>
                 <li><Link href="/collections/accessories">Artisan Accessories</Link></li>
                 <li><Link href="/collections/gifts">Gifts</Link></li>
               </ul>
@@ -46,8 +48,8 @@ export default function Footer() {
             <div className={styles.navGroup}>
               <h4>About IDFIS</h4>
               <ul className={styles.navLinks}>
-                <li><Link href="/our-story">Our Story</Link></li>
-                <li><Link href="/artisans">Artisans</Link></li>
+                {/* <li><Link href="/our-story">Our Story</Link></li> */}
+                {/* <li><Link href="/artisans">Artisans</Link></li> */}
                 <li><Link href="/authenticity">Authenticity Promise</Link></li>
                 <li><Link href="/care-journey">Care Journey</Link></li>
               </ul>
@@ -57,20 +59,20 @@ export default function Footer() {
               <h4>Customer Care</h4>
               <ul className={styles.navLinks}>
                 <li><Link href="/shipping-delivery">Shipping & Delivery</Link></li>
-                <li><Link href="/care-journey">Packaging & Safe Arrival</Link></li>
+                <li><Link href="/packaging-safe-arrival">Packaging & Safe Arrival</Link></li>
                 <li><Link href="/returns-damage-policy">Returns & Damage Policy</Link></li>
                 <li><Link href="/faq">FAQ</Link></li>
                 <li><Link href="/contact">Contact</Link></li>
-                <li><Link href="/track-order">Track Order</Link></li>
+                {/* <li><Link href="/track-order">Track Order</Link></li> */}
               </ul>
             </div>
 
             <div className={styles.navGroup}>
               <h4>Legal</h4>
               <ul className={styles.navLinks}>
-                <li><Link href="/privacy-policy">Privacy Policy</Link></li>
-                <li><Link href="/terms-of-service">Terms of Service</Link></li>
-                <li><Link href="/refund-policy">Refund Policy</Link></li>
+                {/* <li><Link href="/privacy-policy">Privacy Policy</Link></li> */}
+                {/* <li><Link href="/terms-of-service">Terms of Service</Link></li> */}
+                {/* <li><Link href="/refund-policy">Refund Policy</Link></li> */}
               </ul>
             </div>
 

@@ -1,13 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Outfit:wght@300;400;500;600&display=swap');
 
 :root {
-  --color-background: #ffffff;
-  --color-foreground: #111111;
-  --color-accent: #B8912E; /* Gold from the IDFIS logo */
-  --color-accent-hover: #9c7b27;
-  --color-surface: #f7f7f7;
-  --color-surface-transparent: rgba(255, 255, 255, 0.85);
-  --color-border: #eaeaea;
+  --color-background: #0a0a0a;
+  --color-foreground: #fcfaf8;
+  --color-accent: #d4af37;
+  --color-accent-hover: #e5c158;
+  --color-surface: #111111;
+  --color-surface-transparent: rgba(10, 10, 10, 0.85);
+  --color-border: rgba(212, 175, 55, 0.2);
   
   --font-serif: 'Instrument Serif', serif;
   --font-sans: 'Outfit', sans-serif;

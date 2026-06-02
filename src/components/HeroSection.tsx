@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import styles from './HeroSection.module.css';
 
 export default function HeroSection() {
@@ -22,7 +23,7 @@ export default function HeroSection() {
         </div>
       </div>
       <div className={styles.rightCol}>
-        <img src="/images/bento_coat.png" alt="IDFIS Collection" className={styles.heroImg} />
+        <Image src="/images/kanchipuram_hero.png" alt="IDFIS Collection" width={800} height={800} style={{ width: '100%', height: '100%', objectFit: 'cover' }} className={styles.heroImg} />
       </div>
     </section>
   );

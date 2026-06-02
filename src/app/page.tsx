@@ -6,6 +6,7 @@ import WhoWeAre from '@/components/WhoWeAre';
 
 import Footer from '@/components/Footer';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function Home() {
   return (
@@ -61,61 +62,90 @@ export default function Home() {
       <section style={{ padding: '8rem 2rem', backgroundColor: 'var(--color-background)' }}>
         <div className="container">
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: '4rem' }}>
-            <h2 style={{ fontSize: '3rem', fontFamily: 'var(--font-serif)', margin: 0 }}>New Artisan Arrivals</h2>
+            <h2 style={{ fontSize: '3rem', fontFamily: 'var(--font-serif)', margin: 0, color: 'var(--color-accent)' }}>New Heirloom Arrivals</h2>
             <Link href="/collections/all" style={{ fontSize: '0.9rem', color: 'var(--color-accent)', textTransform: 'uppercase', letterSpacing: '0.1em', textDecoration: 'none', borderBottom: '1px solid var(--color-accent)' }}>Shop All</Link>
           </div>
           
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '3rem' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '3rem' }}>
             {/* Product Card 1 */}
             <div className="product-card group" style={{ cursor: 'pointer' }}>
-              <Link href="/products/heritage-kashmiri-pashmina-wrap" style={{ textDecoration: 'none', color: 'inherit' }}>
-                <div style={{ position: 'relative', aspectRatio: '3/4', backgroundColor: 'var(--color-surface)', marginBottom: '1.5rem', overflow: 'hidden' }}>
-                  <img src="/images/story_hero.png" alt="Heritage Kashmiri Pashmina Wrap" style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.5s ease' }} className="product-img" />
+              <Link href="/products/emerald-kanchipuram-silk-saree" style={{ textDecoration: 'none', color: 'inherit' }}>
+                <div style={{ position: 'relative', aspectRatio: '3/4', backgroundColor: 'var(--color-surface)', marginBottom: '1.5rem', overflow: 'hidden', border: '1px solid var(--color-border)' }}>
+                  <div style={{ position: 'absolute', top: '1rem', left: '1rem', background: 'var(--color-accent)', color: '#000', fontSize: '0.7rem', padding: '0.3rem 0.8rem', textTransform: 'uppercase', letterSpacing: '0.1em', zIndex: 10 }}>Ready to Ship</div>
+                  <Image src="/images/kanchipuram_product_1.png" alt="Emerald Kanchipuram Silk Saree" fill style={{ objectFit: 'cover', transition: 'transform 0.5s ease' }} className="product-img" />
                 </div>
-                <h3 style={{ fontSize: '1.2rem', fontFamily: 'var(--font-serif)', margin: '0 0 0.5rem 0' }}>Heritage Kashmiri Pashmina</h3>
-                <p style={{ fontSize: '0.85rem', color: 'rgba(252, 250, 248, 0.6)', margin: '0 0 1rem 0' }}>Hand-spun pure cashmere</p>
-                <p style={{ fontSize: '1.1rem' }}>$580.00</p>
+                <h3 style={{ fontSize: '1.3rem', fontFamily: 'var(--font-serif)', margin: '0 0 0.5rem 0', color: 'var(--color-accent)' }}>Emerald Kanchipuram Silk Saree</h3>
+                <p style={{ fontSize: '0.85rem', color: 'rgba(252, 250, 248, 0.6)', margin: '0 0 1rem 0' }}>Authentic handwoven ceremonial silk</p>
+                <p style={{ fontSize: '1.2rem' }}>$480.00</p>
               </Link>
             </div>
             {/* Product Card 2 */}
             <div style={{ position: 'relative' }}>
-              <Link href="/products/ivory-silk-kurta" style={{ textDecoration: 'none', color: 'inherit' }}>
-                <div style={{ position: 'relative', aspectRatio: '3/4', overflow: 'hidden', backgroundColor: 'var(--color-surface)', marginBottom: '1.5rem' }}>
-                  <div style={{ position: 'absolute', top: '1rem', left: '1rem', background: 'var(--color-border)', color: '#fff', fontSize: '0.7rem', padding: '0.2rem 0.6rem', textTransform: 'uppercase', letterSpacing: '0.1em', zIndex: 10 }}>Made to Order</div>
-                  <img src="/images/bento_kurta.png" alt="Ivory Silk Kurta" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+              <Link href="/products/ivory-sozni-embroidered-shawl" style={{ textDecoration: 'none', color: 'inherit' }}>
+                <div style={{ position: 'relative', aspectRatio: '3/4', overflow: 'hidden', backgroundColor: 'var(--color-surface)', marginBottom: '1.5rem', border: '1px solid var(--color-border)' }}>
+                  <div style={{ position: 'absolute', top: '1rem', left: '1rem', background: 'var(--color-accent)', color: '#000', fontSize: '0.7rem', padding: '0.3rem 0.8rem', textTransform: 'uppercase', letterSpacing: '0.1em', zIndex: 10 }}>Made to Order</div>
+                  <Image src="/images/kashmir_product_1.png" alt="Ivory Sozni Embroidered Shawl" fill style={{ objectFit: 'cover' }} />
                 </div>
-                <h3 style={{ fontSize: '1.2rem', fontFamily: 'var(--font-serif)', margin: '0 0 0.5rem 0' }}>Ivory Silk Kurta</h3>
-                <p style={{ fontSize: '0.85rem', color: 'rgba(252, 250, 248, 0.6)', margin: '0 0 1rem 0' }}>Minimalist festive wear</p>
-                <p style={{ fontSize: '1.1rem' }}>$185.00</p>
+                <h3 style={{ fontSize: '1.3rem', fontFamily: 'var(--font-serif)', margin: '0 0 0.5rem 0', color: 'var(--color-accent)' }}>Ivory Sozni Embroidered Shawl</h3>
+                <p style={{ fontSize: '0.85rem', color: 'rgba(252, 250, 248, 0.6)', margin: '0 0 1rem 0' }}>Fine needlework on Kashmir winter wool</p>
+                <p style={{ fontSize: '1.2rem' }}>$350.00</p>
               </Link>
             </div>
             {/* Product Card 3 */}
             <div style={{ position: 'relative' }}>
-              <Link href="/products/terracotta-banarasi" style={{ textDecoration: 'none', color: 'inherit' }}>
-                <div style={{ position: 'relative', aspectRatio: '3/4', overflow: 'hidden', backgroundColor: 'var(--color-surface)', marginBottom: '1.5rem' }}>
-                  <img src="/images/bento_saree.png" alt="Terracotta Banarasi Saree" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+              <Link href="/products/indigo-ajrakh-stole" style={{ textDecoration: 'none', color: 'inherit' }}>
+                <div style={{ position: 'relative', aspectRatio: '3/4', overflow: 'hidden', backgroundColor: 'var(--color-surface)', marginBottom: '1.5rem', border: '1px solid var(--color-border)' }}>
+                  <Image src="/images/ajrakh_product_1.png" alt="Indigo Ajrakh Stole" fill style={{ objectFit: 'cover' }} />
                 </div>
-                <h3 style={{ fontSize: '1.2rem', fontFamily: 'var(--font-serif)', margin: '0 0 0.5rem 0' }}>Terracotta Banarasi Saree</h3>
-                <p style={{ fontSize: '0.85rem', color: 'rgba(252, 250, 248, 0.6)', margin: '0 0 1rem 0' }}>Heritage handwoven drape</p>
-                <p style={{ fontSize: '1.1rem' }}>$620.00</p>
+                <h3 style={{ fontSize: '1.3rem', fontFamily: 'var(--font-serif)', margin: '0 0 0.5rem 0', color: 'var(--color-accent)' }}>Indigo Ajrakh Stole</h3>
+                <p style={{ fontSize: '0.85rem', color: 'rgba(252, 250, 248, 0.6)', margin: '0 0 1rem 0' }}>Earth-toned block-printed scarf</p>
+                <p style={{ fontSize: '1.2rem' }}>$85.00</p>
               </Link>
             </div>
             {/* Product Card 4 */}
             <div style={{ position: 'relative' }}>
-              <Link href="/products/brass-table-lamp" style={{ textDecoration: 'none', color: 'inherit' }}>
-                <div style={{ position: 'relative', aspectRatio: '3/4', overflow: 'hidden', backgroundColor: 'var(--color-surface)', marginBottom: '1.5rem' }}>
-                  <img src="/images/bento_accessories.png" alt="Artisan Accessories" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+              <Link href="/products/tanjore-balaji-masterpiece" style={{ textDecoration: 'none', color: 'inherit' }}>
+                <div style={{ position: 'relative', aspectRatio: '3/4', overflow: 'hidden', backgroundColor: 'var(--color-surface)', marginBottom: '1.5rem', border: '1px solid var(--color-border)' }}>
+                  <Image src="/images/tanjore_balaji_1.png" alt="Tanjore Balaji Masterpiece" fill style={{ objectFit: 'cover' }} />
                 </div>
-                <h3 style={{ fontSize: '1.2rem', fontFamily: 'var(--font-serif)', margin: '0 0 0.5rem 0' }}>Vintage Brass Accent</h3>
-                <p style={{ fontSize: '0.85rem', color: 'rgba(252, 250, 248, 0.6)', margin: '0 0 1rem 0' }}>Hand-casted home detail</p>
-                <p style={{ fontSize: '1.1rem' }}>$110.00</p>
+                <h3 style={{ fontSize: '1.3rem', fontFamily: 'var(--font-serif)', margin: '0 0 0.5rem 0', color: 'var(--color-accent)' }}>Tanjore Balaji Masterpiece</h3>
+                <p style={{ fontSize: '0.85rem', color: 'rgba(252, 250, 248, 0.6)', margin: '0 0 1rem 0' }}>22K Gold Foil Raised Relief Art</p>
+                <p style={{ fontSize: '1.2rem' }}>$1,200.00</p>
               </Link>
             </div>
           </div>
         </div>
       </section>
 
-
+      {/* Heirloom Stories Featured Section */}
+      <section style={{ position: 'relative', width: '100%', minHeight: '80vh', display: 'flex', alignItems: 'center', backgroundColor: 'var(--color-background)', borderTop: '1px solid var(--color-border)' }}>
+        <div style={{ position: 'absolute', top: 0, left: 0, width: '50%', height: '100%', zIndex: 0 }}>
+          <Image src="/images/kashmir_story.png" alt="Heirloom Arts" fill style={{ objectFit: 'cover' }} />
+        </div>
+        <div className="container" style={{ position: 'relative', zIndex: 1, display: 'flex', justifyContent: 'flex-end', width: '100%', maxWidth: '1400px' }}>
+          <div style={{ width: '55%', padding: '6rem 4rem', backgroundColor: 'var(--color-surface)', border: '1px solid var(--color-border)' }}>
+            <span style={{ display: 'block', fontSize: '0.85rem', color: 'var(--color-accent)', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '1rem' }}>Mastercraft Archive</span>
+            <h2 style={{ fontSize: '3.5rem', fontFamily: 'var(--font-serif)', marginBottom: '2rem', lineHeight: 1.1, color: 'var(--color-accent)' }}>The Heirloom Arts of India</h2>
+            <p style={{ fontSize: '1.1rem', lineHeight: 1.8, opacity: 0.8, marginBottom: '3rem' }}>
+              Some Indian crafts are not made for a season. They are made for generations. From the raised 22K gold relief of Tanjore paintings to the intricate needlework of Kashmir Pashmina and the ceremonial drape of Kanchipuram silk — each piece is curated to carry presence, beauty, and memory into your home.
+            </p>
+            <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+              <Link href="/collections/tanjore-heirloom-paintings" className="btn-outline" style={{ display: 'inline-block', padding: '0.8rem 1.5rem', textDecoration: 'none', borderColor: 'var(--color-accent)', color: 'var(--color-accent)' }}>
+                Tanjore
+              </Link>
+              <Link href="/collections/kashmir-pashmina-sozni-heirlooms" className="btn-outline" style={{ display: 'inline-block', padding: '0.8rem 1.5rem', textDecoration: 'none', borderColor: 'var(--color-accent)', color: 'var(--color-accent)' }}>
+                Kashmir
+              </Link>
+              <Link href="/collections/kanchipuram-silk-heirlooms" className="btn-outline" style={{ display: 'inline-block', padding: '0.8rem 1.5rem', textDecoration: 'none', borderColor: 'var(--color-accent)', color: 'var(--color-accent)' }}>
+                Kanchipuram
+              </Link>
+              <Link href="/collections/ajrakh-block-print-stories" className="btn-outline" style={{ display: 'inline-block', padding: '0.8rem 1.5rem', textDecoration: 'none', borderColor: 'var(--color-accent)', color: 'var(--color-accent)' }}>
+                Ajrakh
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* Artisans Preview & Reviews */}
       <section style={{ padding: '8rem 2rem', backgroundColor: 'var(--color-surface)', borderTop: '1px solid var(--color-border)' }}>

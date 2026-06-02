@@ -124,14 +124,20 @@ export default function CheckoutPage() {
       const response = await fetch('/api/checkout/razorpay', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ amount: total, currency })
+        body: JSON.stringify({ 
+          currency,
+          cartItems: items.map(i => ({ id: i.product.id, quantity: i.quantity })),
+          shippingCostINR 
+        })
       });
       
-      const order = await response.json();
+      const result = await response.json();
 
-      if (!order || !order.id) {
-        throw new Error("Failed to initialize payment");
+      if (!result.success || !result.data || !result.data.id) {
+        throw new Error(result.error?.message || "Failed to initialize payment securely.");
       }
+
+      const order = result.data;
 
       const options = {
         key: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID,
@@ -155,11 +161,13 @@ export default function CheckoutPage() {
             })
           });
 
-          if (verifyRes.ok) {
+          const verifyData = await verifyRes.json();
+
+          if (verifyData.success) {
             clearCart();
             router.push('/profile');
           } else {
-            alert("Payment verification failed.");
+            alert(verifyData.error?.message || "Payment verification failed. Please contact support if money was deducted.");
           }
         },
         prefill: {
@@ -174,7 +182,7 @@ export default function CheckoutPage() {
 
       const rzp = new (window as any).Razorpay(options);
       rzp.on('payment.failed', function (response: any){
-        alert("Payment Failed: " + response.error.description);
+        alert("Payment could not be completed. If money was deducted, please contact IDFIS support with your payment reference.");
       });
       rzp.open();
       

@@ -1,59 +1,47 @@
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import Link from 'next/link';
 
 export default function ReturnsDamagePolicy() {
   return (
-    <main>
+    <main style={{ backgroundColor: 'var(--color-background)', minHeight: '100vh' }}>
       <Header />
-      <div className="container" style={{ paddingTop: '8rem', paddingBottom: '6rem', maxWidth: '800px', minHeight: '80vh' }}>
-        <h1 style={{ fontSize: '3rem', fontFamily: 'var(--font-serif)', marginBottom: '2rem', textAlign: 'center' }}>
-          Returns & Safe Arrival Policy
+      <div className="container" style={{ paddingTop: '10rem', paddingBottom: '6rem', maxWidth: '800px' }}>
+        <h1 style={{ fontSize: '3.5rem', fontFamily: 'var(--font-serif)', marginBottom: '3rem', color: 'var(--color-foreground)', lineHeight: 1.1 }}>
+          Returns & Damage Policy
         </h1>
-        <div style={{ color: 'rgba(252, 250, 248, 0.85)', lineHeight: 1.8, fontSize: '1.05rem', fontFamily: 'var(--font-sans)', fontWeight: 300 }}>
+
+        <div style={{ color: 'rgba(252, 250, 248, 0.8)', fontSize: '1.1rem', lineHeight: 1.8 }}>
           
-          <h2 style={{ fontSize: '1.5rem', color: 'var(--color-accent)', marginBottom: '1rem', marginTop: '2rem', textTransform: 'uppercase', letterSpacing: '0.1em' }}>Returns</h2>
           <p style={{ marginBottom: '2rem' }}>
-            Because many IDFIS products are handmade, limited-batch, or internationally shipped, returns are handled carefully and may depend on the product category, destination, and condition of the item.
-            <br /><br />
-            Returned products must be unused, unworn, unwashed, undamaged, and in original packaging.
+            Given the delicate, handmade, and often bespoke nature of IDFIS products, we operate a strict returns policy to protect the integrity of the artwork and textiles. 
           </p>
 
-          <h2 style={{ fontSize: '1.5rem', color: 'var(--color-accent)', marginBottom: '1rem', marginTop: '2rem', textTransform: 'uppercase', letterSpacing: '0.1em' }}>Damaged Items</h2>
-          <p style={{ marginBottom: '2rem' }}>
-            If your order arrives damaged, contact us within 48 hours of delivery with photos of the product, inner packaging, outer packaging, and shipping label.
+          <h2 style={{ fontSize: '2rem', fontFamily: 'var(--font-serif)', color: 'var(--color-accent)', marginTop: '4rem', marginBottom: '1.5rem' }}>General Returns</h2>
+          <p style={{ marginBottom: '1.5rem' }}>
+            We do not accept returns for "change of mind." True handmade items possess inherent irregularities (e.g., uneven dye spots, slight weave variations, or organic textures in wood/metal). These are not defects and do not qualify an item for return.
+          </p>
+          <p style={{ marginBottom: '1.5rem' }}>
+            Apparel and textiles may be exchanged for a different size within 7 days of delivery, provided they are unworn, unwashed, and in their original packaging. The customer is responsible for return shipping costs. Made-to-order, custom, and one-of-one art pieces are strictly final sale.
           </p>
 
-          <h2 style={{ fontSize: '1.5rem', color: 'var(--color-accent)', marginBottom: '1rem', marginTop: '2rem', textTransform: 'uppercase', letterSpacing: '0.1em' }}>Handmade Variations Are Not Defects</h2>
-          <p style={{ marginBottom: '1rem' }}>
-            The following are natural in handmade products and are not considered defects:
+          <h2 style={{ fontSize: '2rem', fontFamily: 'var(--font-serif)', color: 'var(--color-accent)', marginTop: '4rem', marginBottom: '1.5rem' }}>Damage Claims</h2>
+          <p style={{ marginBottom: '1.5rem' }}>
+            We take extreme care in our packaging process. However, if your item arrives damaged in transit, you must report it within <strong>48 hours of delivery</strong>.
           </p>
-          <ul style={{ marginBottom: '2rem', paddingLeft: '1.5rem', listStyleType: 'square' }}>
-            <li>Slight color variation</li>
-            <li>Minor print or weave irregularity</li>
-            <li>Small size variation</li>
-            <li>Natural texture differences</li>
-            <li>Hand-finished surface differences</li>
-            <li>Embroidery or pattern variation</li>
+          <ul style={{ paddingLeft: '1.5rem', marginBottom: '1.5rem' }}>
+            <li style={{ marginBottom: '0.5rem' }}>Retain all original packaging materials.</li>
+            <li style={{ marginBottom: '0.5rem' }}>Take clear photographs of the damaged shipping box (outside and inside) and the damaged item.</li>
+            <li style={{ marginBottom: '0.5rem' }}>Submit a claim via our Damage Resolution portal or email concierge immediately.</li>
           </ul>
 
-          <h2 style={{ fontSize: '1.5rem', color: 'var(--color-accent)', marginBottom: '1rem', marginTop: '2rem', textTransform: 'uppercase', letterSpacing: '0.1em' }}>Non-Returnable Items</h2>
-          <p style={{ marginBottom: '1rem' }}>
-            The following may not be eligible for return:
-          </p>
-          <ul style={{ marginBottom: '2rem', paddingLeft: '1.5rem', listStyleType: 'square' }}>
-            <li>Custom-size items</li>
-            <li>Made-to-order products</li>
-            <li>Final sale products</li>
-            <li>Used, worn, or washed garments</li>
-            <li>Products damaged after delivery</li>
-            <li>Items returned without original packaging</li>
-          </ul>
-
-          <h2 style={{ fontSize: '1.5rem', color: 'var(--color-accent)', marginBottom: '1rem', marginTop: '2rem', textTransform: 'uppercase', letterSpacing: '0.1em' }}>Duties & Shipping Charges</h2>
-          <p style={{ marginBottom: '2rem' }}>
-            Original shipping fees, customs duties, VAT, import taxes, and courier handling charges may not be refundable unless required by applicable law.
-          </p>
-
+          <div style={{ marginTop: '5rem', padding: '3rem', border: '1px solid var(--color-border)', backgroundColor: 'var(--color-surface)', textAlign: 'center' }}>
+            <h3 style={{ fontSize: '1.5rem', fontFamily: 'var(--font-serif)', color: 'var(--color-accent)', marginBottom: '1rem' }}>Initiate a Claim</h3>
+            <p style={{ fontSize: '0.95rem', marginBottom: '2rem' }}>Please have your order number and photographs ready.</p>
+            <Link href="/damage-claim" className="btn-primary" style={{ display: 'inline-block', padding: '1rem 2rem' }}>
+              Damage Resolution Portal
+            </Link>
+          </div>
         </div>
       </div>
       <Footer />

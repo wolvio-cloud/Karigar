@@ -39,8 +39,8 @@ export default function Sustainability() {
             <p className={styles.textBlock} style={{ fontSize: '0.9rem' }}>From our production line to our packaging, we are 100% plastic-free.</p>
           </div>
           <div>
-            <h4 style={{ fontFamily: 'var(--font-sans)', fontWeight: 600, fontSize: '1.2rem', marginBottom: '1rem' }}>Natural Dyes</h4>
-            <p className={styles.textBlock} style={{ fontSize: '0.9rem' }}>We utilize plant-based indigo, madder, and marigold for our vibrant hues.</p>
+            <h4 style={{ fontFamily: 'var(--font-sans)', fontWeight: 600, fontSize: '1.2rem', marginBottom: '1rem' }}>Earth-toned palette / natural dyes where verified</h4>
+            <p className={styles.textBlock} style={{ fontSize: '0.9rem' }}>We utilize plant-based indigo, madder, and marigold for our vibrant hues where verified.</p>
           </div>
           <div>
             <h4 style={{ fontFamily: 'var(--font-sans)', fontWeight: 600, fontSize: '1.2rem', marginBottom: '1rem' }}>Fair Wages</h4>

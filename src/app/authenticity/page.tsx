@@ -1,46 +1,44 @@
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import Link from 'next/link';
 
 export default function AuthenticityPromise() {
   return (
-    <main>
+    <main style={{ backgroundColor: 'var(--color-background)', minHeight: '100vh' }}>
       <Header />
-      <div className="container" style={{ paddingTop: '8rem', paddingBottom: '6rem', maxWidth: '800px', minHeight: '80vh' }}>
-        <h1 style={{ fontSize: '3rem', fontFamily: 'var(--font-serif)', marginBottom: '2rem', textAlign: 'center' }}>
-          Our Authenticity Promise
+      <div className="container" style={{ paddingTop: '10rem', paddingBottom: '6rem', maxWidth: '800px' }}>
+        <span style={{ color: 'var(--color-accent)', textTransform: 'uppercase', letterSpacing: '0.1em', fontSize: '0.85rem', marginBottom: '1rem', display: 'block' }}>Our Commitment</span>
+        <h1 style={{ fontSize: '3.5rem', fontFamily: 'var(--font-serif)', marginBottom: '3rem', color: 'var(--color-foreground)', lineHeight: 1.1 }}>
+          The Authenticity Promise
         </h1>
-        <div style={{ color: 'rgba(252, 250, 248, 0.85)', lineHeight: 1.8, fontSize: '1.05rem', fontFamily: 'var(--font-sans)', fontWeight: 300 }}>
+
+        <div style={{ color: 'rgba(252, 250, 248, 0.8)', fontSize: '1.1rem', lineHeight: 1.8 }}>
           <p style={{ marginBottom: '2rem' }}>
-            IDFIS exists to bring India’s hidden craft excellence to the global luxury market. We curate pieces that reflect Indian textile heritage, artisan skill, regional craft knowledge, and timeless design.
-          </p>
-          <p style={{ marginBottom: '3rem' }}>
-            We are not built around mass-produced imitation. We focus on craft-led products with story, quality, and cultural value.
+            IDFIS is built on a foundation of profound respect for Indian craftsmanship. We recognize that true luxury lies not in mass production, but in the slow, deliberate work of human hands. 
           </p>
 
-          <h2 style={{ fontSize: '1.5rem', color: 'var(--color-accent)', marginBottom: '1rem', marginTop: '2rem', textTransform: 'uppercase', letterSpacing: '0.1em' }}>Rooted in Indian Craft</h2>
-          <p style={{ marginBottom: '2rem' }}>
-            Our collections are inspired by India’s rich traditions of weaving, embroidery, printing, metalwork, and handmade design.
+          <h2 style={{ fontSize: '2rem', fontFamily: 'var(--font-serif)', color: 'var(--color-accent)', marginTop: '4rem', marginBottom: '1.5rem' }}>Craft-Origin Verification</h2>
+          <p style={{ marginBottom: '1.5rem' }}>
+            Every heirloom piece in our collection is traced back to its geographical root. Where applicable, we explicitly state Geographical Indication (GI) status or regional craft verification. We do not use misleading terminology. When a piece is inspired by a tradition rather than crafted in its ancestral home, we transparently state it as "Regionally Recognized" or "Inspired Craft".
           </p>
 
-          <h2 style={{ fontSize: '1.5rem', color: 'var(--color-accent)', marginBottom: '1rem', marginTop: '2rem', textTransform: 'uppercase', letterSpacing: '0.1em' }}>Curated, Not Crowded</h2>
-          <p style={{ marginBottom: '2rem' }}>
-            We do not aim to sell everything. We select pieces that match our standards for craftsmanship, material quality, visual beauty, and global appeal.
+          <h2 style={{ fontSize: '2rem', fontFamily: 'var(--font-serif)', color: 'var(--color-accent)', marginTop: '4rem', marginBottom: '1.5rem' }}>Material Transparency</h2>
+          <p style={{ marginBottom: '1.5rem' }}>
+            We believe you should know exactly what you are investing in. Whether it is Fine Kashmir wool, Mulberry silk, or Zari detailing, the material composition is stated directly on the product page.
           </p>
 
-          <h2 style={{ fontSize: '1.5rem', color: 'var(--color-accent)', marginBottom: '1rem', marginTop: '2rem', textTransform: 'uppercase', letterSpacing: '0.1em' }}>Handmade Character</h2>
-          <p style={{ marginBottom: '2rem' }}>
-            Small differences in color, texture, print, weave, embroidery, or finish are natural in handcrafted products. These are not defects. They are signs of human skill and handmade individuality.
+          <h2 style={{ fontSize: '2rem', fontFamily: 'var(--font-serif)', color: 'var(--color-accent)', marginTop: '4rem', marginBottom: '1.5rem' }}>The Mark of the Hand</h2>
+          <p style={{ marginBottom: '1.5rem' }}>
+            Handcrafted pieces are not uniform. You may notice slight variations in dye, weave tension, embroidery loops, or brush strokes. We do not view these as defects; we celebrate them as the undeniable signature of the artisan.
           </p>
 
-          <h2 style={{ fontSize: '1.5rem', color: 'var(--color-accent)', marginBottom: '1rem', marginTop: '2rem', textTransform: 'uppercase', letterSpacing: '0.1em' }}>Transparent Product Details</h2>
-          <p style={{ marginBottom: '2rem' }}>
-            Product pages should clearly show material, size, origin, care instructions, and handmade variation notes wherever available.
-          </p>
-
-          <h2 style={{ fontSize: '1.5rem', color: 'var(--color-accent)', marginBottom: '1rem', marginTop: '2rem', textTransform: 'uppercase', letterSpacing: '0.1em' }}>Respect for Artisans</h2>
-          <p style={{ marginBottom: '2rem' }}>
-            IDFIS is built to celebrate the people, techniques, and cultural heritage behind Indian handmade products.
-          </p>
+          <div style={{ marginTop: '5rem', padding: '3rem', border: '1px solid var(--color-border)', backgroundColor: 'var(--color-surface)', textAlign: 'center' }}>
+            <h3 style={{ fontSize: '1.5rem', fontFamily: 'var(--font-serif)', color: 'var(--color-accent)', marginBottom: '1rem' }}>Questions about a piece?</h3>
+            <p style={{ fontSize: '0.95rem', marginBottom: '2rem' }}>Our concierges are available to discuss the provenance, material, or history of any item in our archive.</p>
+            <Link href="/contact" className="btn-primary" style={{ display: 'inline-block', padding: '1rem 2rem' }}>
+              Contact Concierge
+            </Link>
+          </div>
         </div>
       </div>
       <Footer />
